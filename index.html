@@ -4,24 +4,40 @@
     <title>Pixel Art Maker!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Lab: Pixel Art Maker</h1>
-
+    <div>
+        <h2>Instructions:</h2>
+        <p> 
+            <ol>
+                <li>Choose height and width of your canvas;</li>
+                <li>Choose the color you want to paint your pixel with;</li>
+                <li>Click to apply color to the pixel;</li>
+                <li>Double click to erase (or set to blank);</li>
+            </ol> 
+        </p> 
+    </div> 
     <h2>Choose Grid Size</h2>
     <form id="sizePicker">
         Grid Height:
-        <input type="number" id="input_height" name="height" min="1" value="1">
+        <input type="number" id="input_height" name="height" min="1" value="">
         Grid Width:
-        <input type="number" id="input_width" name="width" min="1" value="1">
-        <input type="submit">
+        <input type="number" id="input_width" name="width" min="1" value="">
+        <input type="submit" id="form_submmit">
     </form>
 
     <h2>Pick A Color</h2>
     <input type="color" id="colorPicker">
 
+
     <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
+    <table id="pixel_canvas">
+
+    </table>
+
 
     <script src="designs.js"></script>
 </body>
