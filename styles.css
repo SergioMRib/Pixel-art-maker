@@ -1,10 +1,55 @@
 body {
+    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
     text-align: center;
+    background-color: rgb(79, 128, 168);
+    
+}
+
+div{
+    margin: 2px;
+    padding: 10px;
+    box-shadow: 3px 3px 2px #000;
+    border-radius: 7px;
+}
+
+div#container {
+    margin: auto;
+    width: 95%;
+    height: 600px;
+    padding: 5px;
+    box-shadow: none;
+}
+
+div#left_panel {
+    float: left;
+    width: 13%;
+    height: 550px;
+     
+    background-color: #CC9752;
+    border: 2px solid rgb(136, 101, 54);
+}
+
+div#center_panel {
+    float: left;
+    margin-left: left;
+    width: 70%;
+    height: 550px;
+    background-color: #E5DBCF;
+    border: 2px solid rgb(146, 140, 132);
+}
+
+div#right_panel {
+    float: left;
+    width: 9%;
+    height: 550px;
+    
+    background-color: #0F3B5F;
+    border: 2px solid rgb(10, 39, 63)
 }
 
 h1 {
     font-family: Monoton;
-    font-size: 70px;
+    font-size: 30px;
     margin: 0.2em;
 }
 
@@ -16,25 +61,59 @@ h2:first-of-type {
     margin-top: 0.5em;
 }
 
-table,
-tr,
-td {
-    border: 1px solid black;
+#canvasTitle {
+    font-family: "Audiowide";
+    text-align: center;
+    vertical-align: middle;
+}
+
+.with-no-canvas {
+    vertical-align: middle;
+}
+.grid_properties {
+    color: white;
+}
+li {
+    font-size: small;
+}
+li:hover {
+    font-size: 120%;
+    font-style: bold;
+    text-align: left;
 }
 
 table {
+    border: 2px solid black;
+    border-radius: 25px;
     border-collapse: collapse;
     margin: 0 auto;
 }
-
+table.with-no-canvas {
+    display: none; 
+}
 tr {
     height: 20px;
 }
 
 td {
+    border: 1px solid rgba(74, 91, 114, 0.404);
+    border-radius: 0px;
     width: 20px;
 }
 
+td:hover {
+    background-color: #85aeb193;
+}
 input[type=number] {
     width: 6em;
+}
+
+input,
+button {
+    background-color: #b7e2ee;
+}
+
+ol {
+    text-align: justify;
+    padding-left: 10px;
 }
