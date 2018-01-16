@@ -39,10 +39,21 @@ function makeGrid(height, width) {
 Selection of the color for cells
 and aplying it to them
 */
-var selectedColor = "#000"
-var selectedColor = $("#colorPicker").on("change", function(){
+var selectedColor = "#000";
+selectedColor = $("#colorPicker").on("change", function(){
      // event to select color
-     console.log($(this).val())
+     var colorCode = $(this).val(),
+     styleTag = " style=\"background-color:" + colorCode + ";\">",
+     textToInsert = "<button class=\"reselect-button\""+ styleTag + colorCode + "</button>";
+     $("#selected-colors-list").append(textToInsert);     
+     console.log($(this).val());
+})
+
+
+// to reselect one of the colors already used
+$("selected-colors-list").on("click",".reselect-button", function (){
+    console.log("reselection worked. Color code is: " + $(this).css("background-color"));
+    selectedColor.val() = "#000";
 })
 
 function painter(cell, color) {
@@ -57,14 +68,25 @@ function painter(cell, color) {
     cell.css("background-color", color)
 }
 
-var mouseDown = false;
+var paintCells = false,
+    eraseCells = false;
 
 $("table").on({
-    mousedown: function () {
-        mouseDown = true;
+    click: function () {
+        if (paintCells == false) {
+            paintCells = true;
+            eraseCells = false;
+        }else{
+            paintCells = false;
+        }
     },
-    mouseup: function (){
-        mouseDown = false;
+    dblclick: function () {
+        if (eraseCells == false) {
+            eraseCells = true;
+            paintCells = false;
+        }else{
+            eraseCells = false;
+        }
     }
 })
 
@@ -72,17 +94,16 @@ $("table").on("mouseover","td", function () {
     /* event that selects the cell and passes it to the painter
     function
     */
-    if (mouseDown == true){
+    if (paintCells == true){
         console.log("clicked");
         painter($(this), selectedColor.val());
     }
+    if (eraseCells == true) {
+        console.log("erasing color");
+        $(this).css("background-color", "transparent");
+    }
 })
 
-$("table").on("dblclick","td", function () {
-    // function to erase color (change it to white!)
-    console.log("clicked")
-    $(this).css("background-color", "transparent");  
-})
 
 $("#createNewGrid").on("click", function () {
     $("#sizePicker").show();

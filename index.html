@@ -16,14 +16,14 @@
         <p> 
             <ol>
                 <li>Choose height and width of your canvas;</li>
-                <li>Choose the color you want to paint your pixel with;</li>
-                <li>Click to apply color to the pixel;</li>
-                <li>Double click to erase;</li>
+                <li>Choose the color you want to paint your pixels with;</li>
+                <li>Click to activate painting cells; Click to deactivate;</li>
+                <li>Doubleclick to activate eraser; Doubleclick again to deactivate eraser;</li>
             </ol> 
         </p> 
     </div>
     <div id="center_panel">
-        <h2 id="canvasTitle" class="with-no-canvas">Design your Canvas</h2>
+        <h2 id="canvasTitle">Design your Canvas</h2>
         <table id="pixel_canvas"></table>
     </div>
     <div id="right_panel">
@@ -31,9 +31,9 @@
     
         <h2 class="grid_properties">Choose Grid Size</h2>
         <form id="sizePicker" class="grid_properties">
-            Grid Height:
+            <h4>Grid Height:</h4>
             <input type="number" id="input_height" name="height" min="1" value="">
-            Grid Width:
+            <h4>Grid Width:</h4>
             <input type="number" id="input_width" name="width" min="1" value="">
             <input type="submit" id="form_submmit" value="Create grid">
         </form>
@@ -43,6 +43,13 @@
         <input type="color" id="colorPicker">
         
     </div> 
+    </div>
+    <div class="bottom-divs">
+        <p>Previously selected color codes</p>
+    </div>
+    <div id="selected-colors-list" class="bottom-divs">
+        
+        
     </div>
 
     <script src="designs.js"></script>

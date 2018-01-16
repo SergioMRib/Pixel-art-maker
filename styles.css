@@ -47,6 +47,10 @@ div#right_panel {
     border: 2px solid rgb(10, 39, 63)
 }
 
+.bottom-divs {
+    box-shadow: none;
+}
+
 h1 {
     font-family: Monoton;
     font-size: 30px;
@@ -61,15 +65,20 @@ h2:first-of-type {
     margin-top: 0.5em;
 }
 
+h4 {
+    margin: 5px;
+}
+
+p {
+    text-align: left;
+    float: initial;
+}
 #canvasTitle {
     font-family: "Audiowide";
     text-align: center;
     vertical-align: middle;
 }
 
-.with-no-canvas {
-    vertical-align: middle;
-}
 .grid_properties {
     color: white;
 }
@@ -88,9 +97,7 @@ table {
     border-collapse: collapse;
     margin: 0 auto;
 }
-table.with-no-canvas {
-    display: none; 
-}
+
 tr {
     height: 20px;
 }
@@ -113,6 +120,9 @@ button {
     background-color: #b7e2ee;
 }
 
+.reselect-button {
+    float: left;
+}
 ol {
     text-align: justify;
     padding-left: 10px;
