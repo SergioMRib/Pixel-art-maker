@@ -49,6 +49,7 @@ div#right_panel {
 
 .bottom-divs {
     box-shadow: none;
+    padding: 3px;
 }
 
 h1 {
@@ -70,6 +71,7 @@ h4 {
 }
 
 p {
+    margin: 0px;
     text-align: left;
     float: initial;
 }
@@ -80,16 +82,13 @@ p {
 }
 
 .grid_properties {
+    margin: 10px;
     color: white;
 }
 li {
     font-size: small;
 }
-li:hover {
-    font-size: 120%;
-    font-style: bold;
-    text-align: left;
-}
+
 
 table {
     border: 2px solid black;
