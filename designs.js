@@ -1,5 +1,6 @@
 // Select size input
 
+
 $('#sizePicker').submit(function (event) {
 
     // prevent refreshing the page
@@ -72,20 +73,27 @@ let selectedColor = $('#colorPicker').on('change', function(){
 })
 
 
-// to reselect one of the colors already used -- DOESN'T WORK
-$('selected-colors-list').on('click','.reselect-button', function (){
-    /* Still not working!
-    This event doesn't react to dinamically created buttons.
-    Why?
+$('#selected-colors-list').on('click','button', function (){
+    /*
+    Event to reselect previous colors
     */
     console.log('Reselection worked. Color code is: ' + $(this).css('background-color'));
-    selectedColor.val() = '#000';
+    let buttonColorCode = $(this).css('background-color');
+    console.log('Cor anterior' + selectedColor.val())
+    selectedColor = '#0F0';
 })
+
+/*
+Cells selection and cell drawing
+*/
+
+const cursorDrawing = 'url(rainbowpntbrsh.cur),auto'
+const cursorErasing = 'url(eraser.cur),auto'
 
 function painter(cell, color) {
     /*
     * @description changes the color of the cell. Declared separately to be possible to pass arguments.
-    * @param a cell - jquery selector of the cell -
+    * @param {object} a cell - jquery selector of the cell -
     * @param {sring} the color - the value of the color given by the object returned by the colorPicker change event
     */
     console.log('Painter function worked')  // debugging purpose
@@ -114,7 +122,7 @@ $('table').on({
             isDrawing = true;
 
             //return cursor to to show it's drawing
-            $(this).css('cursor', 'crosshair')
+            $(this).css('cursor', cursorDrawing)
         }
     },
     dblclick: function () {
@@ -125,7 +133,7 @@ $('table').on({
             isDrawing = false;
 
             // change the cursor to show it's erasing
-            $(this).css('cursor','pointer')
+            $(this).css('cursor',cursorErasing)
         } else {
             isErasing = false;
 
