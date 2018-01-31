@@ -1,0 +1,167 @@
+html,body {
+    height:100%;
+}
+
+body {
+    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+    text-align: center;
+    background-color: #f7f0f0;
+}
+
+div {
+    margin: 2px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgb(146, 146, 146);
+}
+
+div#top-banner{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #8d99ae;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+div#container {
+    position: absolute;
+    top: 70px;
+    margin: auto;
+    width: 1200px;
+    height: 600px;
+    padding: 5px;
+    box-shadow: none;
+}
+
+div#left_panel {
+    float: left;
+    width: 13%;
+    height: 550px;
+    color: #f7f0f0;
+    background-color: #2b2d42;
+}
+
+div#center_panel {
+    display: table;
+    float: left;
+    margin-left: left;
+    width: 60%;
+    height: 550px;
+    background-color: #E5DBCF;
+    color: #2b2d42;
+}
+.center_panel_elements {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div#right_panel {
+    float: left;
+    width: 9%;
+    height: 550px;
+    background-color: #2b2d42;
+}
+
+div.bottom-divs {
+    box-shadow: none;
+    height: 25px;
+}
+
+div.previous-colors {
+    font-size: 12px;
+    color: white;
+    box-shadow: none;
+}
+
+h1 {
+    font-family: Monoton;
+    font-size: 30px;
+    margin: 0.2em;
+}
+
+h2 {
+    margin: 1em 0 0.25em;
+    font-size: 20px;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+h4 {
+    margin: 5px;
+}
+
+p {
+    margin: 0px;
+    text-align: left;
+    float: initial;
+}
+
+#canvasTitle {
+    font-family: "Audiowide";
+    text-align: center;
+    vertical-align: middle;
+}
+
+.grid_properties {
+    margin: 10px;
+    color: #f7f0f0;
+}
+
+.FEWD-projects {
+    font-size: larger;
+    text-decoration-line: none;
+    padding: 10px;
+    margin: 20px 10px 10px;
+    color: #2b2d42;
+}
+.FEWD-projects:hover {
+    background-color: #2b2d42;
+    color: #bac7be;
+}
+
+ol, ul {
+    font-size: small;
+    text-align: justify;
+    padding-left: 10px;
+}
+
+
+table {
+    border: 2px solid #000000;
+    border-radius: 25px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: fixed;
+}
+
+tr {
+    height: 15px;
+}
+
+td {
+    border: 1px solid rgba(74, 91, 114, 0.404);
+    border-radius: 0px;
+    width: 15px;
+}
+
+td:hover {
+    background-color: #85aeb193;
+}
+input[type=number] {
+    width: 6em;
+}
+
+input,
+button {
+    background-color: #b7e2ee;
+}
+
+.reselect-button {
+    float: left;
+    font-size: xx-small;
+}

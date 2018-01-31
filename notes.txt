@@ -1,0 +1,6 @@
+Possibly I'll add the color picker called spectrum.
+ver: https://bgrins.github.io/spectrum/
+
+TO DOS:
+ - limit the height and width of table
+ - use previous color buttons to reset that color
