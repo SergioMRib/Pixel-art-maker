@@ -61,34 +61,60 @@ let selectedColor = $('#colorPicker').on('change', function(){
     // event to select color
 
     // assign the color code to the variable
-    let colorCode = $(this).val(),
+    let colorCode = $(this).val();
 
     // add a button with the selected color code and background to the bottom div
+    addlatestColorButton(colorCode)
+    /*
     styleTag = ' style="background-color:' + colorCode + '";>',
     textToInsert = '<button class="reselect-button"'+ styleTag + colorCode + '</button>';
     $('#selected-colors-list').append(textToInsert);
+    */
 
     // debugging
     console.log($(this).val());
 })
+/* This part is for the use of spectrum. uncomment this and the specific div in the html file
+$("#colPicker").spectrum({
+    flat: true,
+    color: "#f00",
+    change: function(color) {
+        console.log("O color picker spectrum funciona")
+    }
+}); */
 
+function addlatestColorButton (color) {
+    /*
+    @ description This function adds a button with the selected color as
+      background and text; This is to allow future reselection of same color
+    @ param color {string} a string containing the hex code of a color
+    */
+
+    // creation of the tag
+    let styleTag = ' style="background-color:' + color + '";>',
+        textToInsert = '<button class="reselect-button"'+ styleTag + color + '</button>';
+
+    // insertion of the tag
+    $('#right_panel').append(textToInsert);
+}
 
 $('#selected-colors-list').on('click','button', function (){
     /*
-    Event to reselect previous colors
+    Event to reselect previous colors;
+    Takes the text of the button because it's in hex format
     */
-    console.log('Reselection worked. Color code is: ' + $(this).css('background-color'));
-    let buttonColorCode = $(this).css('background-color');
-    console.log('Cor anterior' + selectedColor.val())
-    selectedColor = '#0F0';
+    let buttonColorCode = $(this).text()
+    console.log('Reselection worked. Color code is: ' + buttonColorCode);
+    selectedColor[0].value = buttonColorCode
+    console.log('Reselected color: ' + selectedColor.val())
 })
 
 /*
 Cells selection and cell drawing
 */
 
-const cursorDrawing = 'url(rainbowpntbrsh.cur),auto'
-const cursorErasing = 'url(eraser.cur),auto'
+const cursorDrawing = 'url(images/rainbowpntbrsh.cur),auto'
+const cursorErasing = 'url(images/eraser.cur),auto'
 
 function painter(cell, color) {
     /*
@@ -114,14 +140,14 @@ $('table').on({
             isDrawing = false;
             isErasing = false;
 
-            // changing the cursor default
+            // changing the cursor to default
             $(this).css('cursor', 'default')
         }else {
 
             // If neither are ON then the user wants to start drawing
             isDrawing = true;
 
-            //return cursor to to show it's drawing
+            //change cursor to to show it's drawing
             $(this).css('cursor', cursorDrawing)
         }
     },
@@ -133,7 +159,7 @@ $('table').on({
             isDrawing = false;
 
             // change the cursor to show it's erasing
-            $(this).css('cursor',cursorErasing)
+            $(this).css('cursor', cursorErasing)
         } else {
             isErasing = false;
 
@@ -144,7 +170,8 @@ $('table').on({
 })
 
 $('table').on('mouseover','td', function () {
-    /* event that selects the cell and passes it to the painter
+    /*
+    event that selects the cell and passes it to the painter
     function
     */
 
