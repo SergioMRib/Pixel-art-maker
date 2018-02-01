@@ -9,6 +9,7 @@ body {
 }
 
 div {
+    display: table;
     margin: 2px;
     padding: 10px;
     box-shadow: 2px 2px 2px rgb(146, 146, 146);
@@ -16,6 +17,7 @@ div {
 
 div#top-banner{
     position: absolute;
+    display: table;
     top: 0px;
     left: 0px;
     margin: 0px;
@@ -28,9 +30,8 @@ div#top-banner{
 
 div#container {
     position: absolute;
+    margin: 0 auto;
     top: 70px;
-    margin: auto;
-    width: 1200px;
     height: 600px;
     padding: 5px;
     box-shadow: none;
@@ -38,29 +39,30 @@ div#container {
 
 div#left_panel {
     float: left;
-    width: 13%;
+    width: 200px;
     height: 550px;
     color: #f7f0f0;
     background-color: #2b2d42;
 }
 
 div#center_panel {
-    display: table;
     float: left;
     margin-left: left;
-    width: 60%;
+    width: 600px;
     height: 550px;
     background-color: #E5DBCF;
     color: #2b2d42;
 }
-.center_panel_elements {
+.panel_elements {
     display: table-cell;
     vertical-align: middle;
+    box-shadow: none;
+    padding: 0px;
 }
 
 div#right_panel {
     float: left;
-    width: 9%;
+    width: 120px;
     height: 550px;
     background-color: #2b2d42;
 }
@@ -113,10 +115,10 @@ p {
 }
 
 .FEWD-projects {
-    font-size: larger;
+    font-size: 25px;
     text-decoration-line: none;
-    padding: 10px;
-    margin: 20px 10px 10px;
+    padding: 2px;
+    margin: 0px 10px 0px;
     color: #2b2d42;
 }
 .FEWD-projects:hover {
