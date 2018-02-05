@@ -137,7 +137,7 @@ $('#selected-colors-list').on('click','button', function (){
 Cells selection and cell drawing
 */
 
-const cursorDrawing = 'url(images/Mario_Paint_Little_Pen.cur),auto'
+const cursorDrawing = 'url(images/paintLittlePen.cur),auto'
 const cursorErasing = 'url(images/eraser.cur),auto'
 
 function painter(cell, color) {
