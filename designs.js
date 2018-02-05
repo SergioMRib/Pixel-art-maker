@@ -34,7 +34,8 @@ function makeGrid(height, width) {
     * @param {number} height
     * @param {number} width
     */
-    let columns, table;
+    let columns = '',
+        table = '';
 
     // create number of cells (columns) per line
     for(i = 0; i < width; i++) {
@@ -45,17 +46,40 @@ function makeGrid(height, width) {
     for(i = 0; i < height; i++) {
         table = table + '<tr>' + columns + '</tr>';
     }
-    $('#pixel_canvas').append(table)
-    console.log('added the grid')
-}
 
+    $('#pixel_canvas').append(table)
+
+    /*
+      This is to define the width of the cells according to the document free space
+    */
+    console.log("A width escolhida foi: " + width)
+    let docWidth = $(document).width(),
+        freeSpace = docWidth - 400, // 400 is +/- the sum of the lateral panel divs
+        cellWidth = "";
+
+    if (width * 15 > freeSpace) {
+        /*
+        if the width of table (i.e. number of columns) times (*) 15px width of each cell is
+        greater than the freeSpace available for the table --> the width is reduced to fit this
+        space.
+        */
+        cellWidth = (freeSpace / width) - 3;
+    } else {
+        cellWidth = 15;
+    }
+
+    cellWidth = cellWidth.toString() + "px";
+
+    $('td').css('width', cellWidth)
+    $('tr').css('height', cellWidth)
+    console.log('added the grid')
+    console.log(table)
+}
 
 /*
 Selection of the color for cells
 and aplying it to them
 */
-
-
 
 let selectedColor = $('#colorPicker').on('change', function(){
     // event to select color
@@ -95,7 +119,7 @@ function addlatestColorButton (color) {
         textToInsert = '<button class="reselect-button"'+ styleTag + color + '</button>';
 
     // insertion of the tag
-    $('#right_panel').append(textToInsert);
+    $('.previous-colors').append(textToInsert);
 }
 
 $('#selected-colors-list').on('click','button', function (){

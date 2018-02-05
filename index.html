@@ -17,19 +17,23 @@
             <a class="FEWD-projects" href="index.html">Pixel Art Maker</a>
         </div>
     </div>
+    <div id="instructions-banner">
+        <div id="instructions-title">
+            <h3>Instructions</h3>
+        </div>
+        <div id="instructions">
+            <ol>
+                <li>Choose height and width of your canvas;</li>
+                <li>Choose the color you want to paint your pixels with;</li>
+                <li>Click to activate painting cells; click to deactivate;</li>
+                <li>Doubleclick to activate eraser; click again to deactivate eraser;</li>
+            </ol>
+        </div>
+    </div>
     <div id="container">
         <div id="left_panel">
             <div class="panel_elements">
                 <h1>Pixel Art Maker</h1>
-                <h3>Instructions</h3>
-                <p>
-                    <ol>
-                        <li>Choose height and width of your canvas;</li>
-                        <li>Choose the color you want to paint your pixels with;</li>
-                        <li>Click to activate painting cells; click to deactivate;</li>
-                        <li>Doubleclick to activate eraser; click again to deactivate eraser;</li>
-                    </ol>
-                </p>
             </div>
         </div>
 		<div id="center_panel">
@@ -45,9 +49,9 @@
                 <h2 class="grid_properties">Choose Grid Size</h2>
                 <form id="sizePicker" class="grid_properties">
                     <h4>Height:</h4>
-                    <input type="number" id="input_height" name="height" min="1" max="30" value="10">
+                    <input type="number" id="input_height" name="height" min="1" value="10">
                     <h4>Width:</h4>
-                    <input type="number" id="input_width" name="width" min="1" max="30" value="10">
+                    <input type="number" id="input_width" name="width" min="1" value="10">
                     <input type="submit" id="form_submmit" value="Create grid">
                 </form>
                 <button id="createNewGrid" hidden="hidden">Create new grid</button>
@@ -56,7 +60,7 @@
                 <!-- <input type="text" id="colPicker"> -->
                 <input type="color" id="colorPicker">
                 <div class="previous-colors">
-                    <p>Previously selected color codes</p>
+                    <p>Previous colors</p>
                 </div>
             </div>
 		</div>
