@@ -63,7 +63,7 @@ function makeGrid(height, width) {
         greater than the freeSpace available for the table --> the width is reduced to fit this
         space.
         */
-        cellWidth = (freeSpace / width) - 3;
+        cellWidth = (freeSpace / width) - 1;
     } else {
         cellWidth = 15;
     }
