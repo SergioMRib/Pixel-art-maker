@@ -50,9 +50,9 @@ function makeGrid(height, width) {
     $('#pixel_canvas').append(table)
 
     /*
-      This is to define the width of the cells according to the document free space
+      This following is to define the width of the cells according to the documents free space
     */
-    console.log("A width escolhida foi: " + width)
+    console.log("Chosen width was: " + width)
     let docWidth = $(document).width(),
         freeSpace = docWidth - 400, // 400 is +/- the sum of the lateral panel divs
         cellWidth = "";
