@@ -1,13 +1,13 @@
 body {
 	font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
 	font-size: small;
-	color: #3a434e;
+	color: #f4f8fb;
 	text-align: center;
 }
 
-div#top-banner{
+div#top-banner {
+	display:table;
     position: absolute;
-    display: table;
     top: 0px;
     left: 0px;
     margin: 0px;
@@ -22,48 +22,60 @@ div#top-banner{
     font-size: 25px;
     text-decoration-line: none;
     padding: 2px;
-    margin: 20px 10px 10px;
+    margin: 0px 10px 0px;
     color: #2b2d42;
 }
+
 .FEWD-projects:hover {
     background-color: #2b2d42;
     color: #bac7be;
 }
 
-h2.name {
+.card, .info, img {
+	border: 1px solid #D3D3D3;
+}
+
+.name, img {
 	text-align: center;
 }
-div.card {
-	margin: 70px auto 0px;
-	background-color: #FFF;
-	width: 300px;
-	border: 1px solid #D3D3D3;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	box-shadow: 6px 6px 2px #e6e6e6;
-}
-div.info {
-	width: 280px;
 
-	border: 1px solid #D3D3D3;
+img {
+	border-radius: 10px 50px;
+}
+
+.card {
+	margin: 60px auto 20px;
+	background-color: #356674;
+	width: 310px;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	box-shadow: 6px 6px 2px #8ea8af;
+}
+
+.info {
+	border-radius: 10px;
+	margin: auto;
+	width: 279px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
 }
+
 .label {
 	font-weight: bold;
 }
+
 .species_summary {
 	font-style: italic;
 }
-.unordered_list {
+
+.info_list {
 	display: block;
+	text-align: left;
 	list-style-type: none;
 	padding-left: 10px;
-}
-p {
-	text-align: justify;
 }
 
 .panel_elements {
@@ -71,4 +83,20 @@ p {
     vertical-align: middle;
     box-shadow: none;
     padding: 0px;
+}
+
+.credits {
+	margin-top: 50px;
+	font-size: 70%;
+	color: rgba(0, 0, 0, 0.651);
+}
+
+h2 {
+	margin: 15px auto;
+	font-size: 30px;
+	letter-spacing: 3px;
+}
+
+p {
+	text-align: justify;
 }
