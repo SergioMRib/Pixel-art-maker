@@ -1,71 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <title>Pixel Art Maker!</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    <link rel="stylesheet" href="css/PAM_styles.css">
-    <link href='https://cdn.rawgit.com/bgrins/spectrum/master/spectrum.css' rel='stylesheet'/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='https://cdn.rawgit.com/bgrins/spectrum/master/spectrum.js'></script>
-</head>
-<body>
-    <div id="top-banner">
-        <div class="panel_elements">
-            <a class="FEWD-projects" href="card.html">Animal trading Card</a>
-            <a class="FEWD-projects" href="index.html">Pixel Art Maker</a>
-        </div>
-    </div>
-    <div id="instructions-banner">
-        <div id="instructions-title">
-            <h3>Instructions</h3>
-        </div>
-        <div id="instructions">
-            <ol>
-                <li>Choose height and width of your canvas;</li>
-                <li>Choose the color you want to paint your pixels with;</li>
-                <li>Click to activate painting cells; click to deactivate;</li>
-                <li>Doubleclick to activate eraser; click again to deactivate eraser;</li>
-            </ol>
-        </div>
-    </div>
-    <div id="container">
-        <div id="left_panel">
-            <div class="panel_elements">
-                <h1>Pixel Art Maker</h1>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sérgio's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/portfolio.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <!-- TODO: add media query logos -->
+            <div class="header_logo">
+                <img class="logo" src="images/udacity_52x52.png" alt="Udacity logo">
+                <!-- <span>Este é o texto bla bla que aqui est+a vai vai ele , olha que bonito este coiso todos parar ver</span> -->
             </div>
-        </div>
-		<div id="center_panel">
-            <div class="panel_elements">
-                <h2 id="canvasTitle">Design your Canvas</h2>
-                <p></p>
-                <table id="pixel_canvas"></table>
+            <div class="header_contents">
+                <h1 class="author">Sérgio Ribeiro</h1>
+                <h5 class="author_resume">FRONT-END WEB DEVELOPER</h5>
             </div>
-        </div>
-		<div id="right_panel">
-            <div class="panel_elements">
 
-                <h2 class="grid_properties">Choose Grid Size</h2>
-                <form id="sizePicker" class="grid_properties">
-                    <h4>Height:</h4>
-                    <input type="number" id="input_height" name="height" min="1" value="10">
-                    <h4>Width:</h4>
-                    <input type="number" id="input_width" name="width" min="1" value="10">
-                    <input type="submit" id="form_submmit" value="Create grid">
-                </form>
-                <button id="createNewGrid" hidden="hidden">Create new grid</button>
+        </header>
+        <hr>
+        <main>
+            <section class="showcase">
+                <!-- TODO: add a small resume of why and when Front End inside the image -->
 
-                <h2 class="grid_properties">Pick A Color</h2>
-                <!-- <input type="text" id="colPicker"> -->
-                <input type="color" id="colorPicker">
-                <div class="previous-colors">
-                    <p>Previous colors</p>
+                <div class="background">
+                        <p class="intro">An Environmental Specialist diving into Web Development.</p>
                 </div>
-            </div>
-		</div>
-    </div>
+            </section>
+            <h2 id="feat_title">Featured Work</h2>
+            <section class="project-list">
 
-    <script src="designs.js"></script>
-</body>
+                <article class="project card">
+                    <img class="thumbnail" src="images/card_thumbnail.png" alt="Animal Card">
+                    <a href="https://sergiomrib.github.io/card.html" class="project_title" target="_blank">Animal Trading Card</a>
+                </article>
+                <article class="project pam">
+                    <img class="thumbnail" src="images/PAM_thumbnail.png" alt="PAM">
+                    <a href="https://sergiomrib.github.io/index.html" class="project_title" target="_blank"> Pixel Art Maker</a>
+                </article>
+                <article class="project third">
+                    <img class="thumbnail"  src="images/musica_thumbnail2.png" alt="music" >
+                    <a href="http://postmodernjukebox.com/" class="project_title" target="_blank">The third project</a>
+                </article>
+                <!-- diferent projects -->
+            </section>
+        </main>
+        <footer>
+            <div class="social">
+                <a class="social_link credits" href="https://www.linkedin.com/in/sergribeiro/" target="_blank">
+                    <img class="icons" src="images/icons/linkedin.png">
+                </a>
+                <a class="social_link credits" href="https://github.com/SergioMRib" target="_blank">
+                    <img class="icons" src="images/icons/github.png">
+                </a>
+                <a class="social_link credits" href="https://stackoverflow.com/users/7158016/sergiomrib?tab=profile" target="_blank">
+                    <img class="icons" src="images/icons/overflow.png">
+                </a>
+
+                <a class="social_link credits" href="https://www.facebook.com/sergio.ribeiro.56614" target="_blank">
+                    <img class="icons" src="images/icons/facebook.png">
+                </a>
+            </div>
+            <p class="author credits">Sérgio Ribeiro 2018</p>
+            <p class="credits">Udacity Front-End ND 2017</p>
+            <p class="credits">Social Media Icons by <a href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a></p>
+        </footer>
+    </body>
 </html>

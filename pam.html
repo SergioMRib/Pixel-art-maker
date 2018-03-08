@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <title>Pixel Art Maker!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="css/PAM_styles.css">
+    <link href='https://cdn.rawgit.com/bgrins/spectrum/master/spectrum.css' rel='stylesheet'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdn.rawgit.com/bgrins/spectrum/master/spectrum.js'></script>
+</head>
+<body>
+    <div id="top-banner">
+        <div class="panel_elements">
+            <a class="FEWD-projects" href="card.html">Animal trading Card</a>
+            <a class="FEWD-projects" href="index.html">Pixel Art Maker</a>
+        </div>
+    </div>
+    <div id="instructions-banner">
+        <div id="instructions-title">
+            <h3>Instructions</h3>
+        </div>
+        <div id="instructions">
+            <ol>
+                <li>Choose height and width of your canvas;</li>
+                <li>Choose the color you want to paint your pixels with;</li>
+                <li>Click to activate painting cells; click to deactivate;</li>
+                <li>Doubleclick to activate eraser; click again to deactivate eraser;</li>
+            </ol>
+        </div>
+    </div>
+    <div id="container">
+        <div id="left_panel">
+            <div class="panel_elements">
+                <h1>Pixel Art Maker</h1>
+            </div>
+        </div>
+		<div id="center_panel">
+            <div class="panel_elements">
+                <h2 id="canvasTitle">Design your Canvas</h2>
+                <p></p>
+                <table id="pixel_canvas"></table>
+            </div>
+        </div>
+		<div id="right_panel">
+            <div class="panel_elements">
+
+                <h2 class="grid_properties">Choose Grid Size</h2>
+                <form id="sizePicker" class="grid_properties">
+                    <h4>Height:</h4>
+                    <input type="number" id="input_height" name="height" min="1" value="10">
+                    <h4>Width:</h4>
+                    <input type="number" id="input_width" name="width" min="1" value="10">
+                    <input type="submit" id="form_submmit" value="Create grid">
+                </form>
+                <button id="createNewGrid" hidden="hidden">Create new grid</button>
+
+                <h2 class="grid_properties">Pick A Color</h2>
+                <!-- <input type="text" id="colPicker"> -->
+                <input type="color" id="colorPicker">
+                <div class="previous-colors">
+                    <p>Previous colors</p>
+                </div>
+            </div>
+		</div>
+    </div>
+
+    <script src="designs.js"></script>
+</body>
+</html>

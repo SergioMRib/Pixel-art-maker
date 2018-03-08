@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+footer,
+.header,
+.header_logo,
+.header_contents,
+.project {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 22px 0px;
+}
+
+main, footer {
+    text-align: center;
+}
+
+/*
+
+The header
+
+*/
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header_logo {
+    width: 20%;
+    margin-top: 22px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+.header_contents {
+    width: 80%;
+    padding-right: 10px;
+    display: inline-block;
+    text-align: right;
+}
+
+.author {
+    font-family: sans-serif;
+    color: #7d97ad;
+    margin-bottom: 15px;
+    font-weight: 200;
+}
+
+.author_resume {
+    margin: 0;
+}
+
+/*
+
+The main body and featured work
+
+*/
+
+.background {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 150px;
+    color: white;
+    line-height: 150px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/rabagao.png");
+    background-size: cover;
+    background-position: 0 0;
+    background-attachment: local;
+}
+.intro {
+    line-height: 1.5;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+
+#feat_title {
+    font-weight: 400;
+    color: #7d97adb4;
+}
+
+.project-list {
+    width: 100%;
+    text-align: center;
+}
+
+.project {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.thumbnail {
+    width: 90%;
+    max-width: 350px;
+}
+
+.project_title {
+    display: block;
+    margin: 0;
+    color: #2d3c49;
+    letter-spacing: 4px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+/*
+The footer
+*/
+
+footer {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.credits {
+    color: grey;
+    display: block;
+    font-size: 10px;
+    margin: 0;
+}
+p.credits {
+    width: 100%;
+}
+
+.social{
+    margin-bottom: 10px;
+}
+
+.social_link {
+    margin: 10px 20px 5px;
+    color: #02b3e4;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.icons {
+    width: 28px;
+}
+
+/*
+/
+/
+For screens over 550px - tablets
+/
+/
+*/
+@media screen and (min-width: 550px) {
+    .project-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .project {
+        margin: 10px auto;
+    }
+    .pam {
+        width: 100%;
+        order: 1;
+    }
+    .card, .third {
+        width: 50%;
+        order: 2;
+    }
+    footer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .social {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .icons {
+        width: 30px;
+    }
+}
+
+/*
+/
+/
+For screens over 900px - desktop
+/
+/
+*/
+
+@media screen and (min-width: 800px) {
+    body {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .project {
+        width: 30%;
+    }
+
+    .icons {
+        width: 35px;
+    }
+
+    .social {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
