@@ -78,9 +78,10 @@ The main body and featured work
     line-height: 150px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/rabagao.png");
     background-size: cover;
-    background-position: 0 0;
+    background-position: center center;
     background-attachment: local;
 }
+
 .intro {
     line-height: 1.5;
     display: inline-block;
@@ -88,7 +89,6 @@ The main body and featured work
     vertical-align: middle;
     font-weight: 400;
 }
-
 
 #feat_title {
     font-weight: 400;
@@ -136,6 +136,7 @@ footer {
     font-size: 10px;
     margin: 0;
 }
+
 p.credits {
     width: 100%;
 }
@@ -172,14 +173,17 @@ For screens over 550px - tablets
     .project {
         margin: 10px auto;
     }
+
     .pam {
         width: 100%;
         order: 1;
     }
+
     .card, .third {
         width: 50%;
         order: 2;
     }
+
     footer {
         display: flex;
         align-items: center;
@@ -190,6 +194,7 @@ For screens over 550px - tablets
         width: 100%;
         margin-bottom: 15px;
     }
+
     .icons {
         width: 30px;
     }
@@ -198,7 +203,7 @@ For screens over 550px - tablets
 /*
 /
 /
-For screens over 900px - desktop
+For screens over 800px - desktop
 /
 /
 */
