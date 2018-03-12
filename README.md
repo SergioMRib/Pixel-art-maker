@@ -1,16 +1,6 @@
-# Pixel Art Maker Project
+# Sérgio's portfolio
 
-## Table of Contents
+This is Sérgio's portfolio site.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+It was created as a project for Udacity's [WEB DEV nanodegree](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001) and it is to be maintained through time by adding samples and links to future projects I develop.
 
-## Instructions
-
-To get started, open `designs.js` and start building out the app's functionality.
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
