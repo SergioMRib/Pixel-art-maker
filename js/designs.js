@@ -10,7 +10,7 @@ $('#sizePicker').submit(function (event) {
     $('#pixel_canvas').children().remove()
 
     // assign form values to variables
-    var canvasHeight = $('#input_height').val(),
+    let canvasHeight = $('#input_height').val(),
         canvasWidth = $('#input_width').val();
 
     // debugging logs...
@@ -50,7 +50,7 @@ function makeGrid(height, width) {
     $('#pixel_canvas').append(table)
 
     /*
-      This following is to define the width of the cells according to the documents free space
+      The following is to define the width of the cells according to the documents free space
     */
     console.log("Chosen width was: " + width)
     let docWidth = $(document).width(),
@@ -171,7 +171,7 @@ $('table').on({
             // If neither are ON then the user wants to start drawing
             isDrawing = true;
 
-            //change cursor to to show it's drawing
+            //change cursor to show it's drawing
             $(this).css('cursor', cursorDrawing)
         }
     },
@@ -201,7 +201,7 @@ $('table').on('mouseover','td', function () {
 
     // if statement to draw
     if (isDrawing == true){
-        console.log('clicked');
+        console.log('is painting');
         painter($(this), selectedColor.val());
     }
 
