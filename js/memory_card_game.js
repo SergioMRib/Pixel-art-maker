@@ -1,14 +1,29 @@
 /*
- * Create a list that holds all of your cards
+ * Create a list that holds all of your cards;
+ * This will be used to shuffle the deck.
+ * The produced list will have an index for each card.
+ * The shuffle function will assign new index values
  */
 
+const repeatButton = document.getElementById('restart');
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+let allCards = document.getElementsByClassName('card');
+let theDeck = document.getElementsByClassName('deck');
+
+
+repeatButton.addEventListener('click', function (){
+    /*
+    Description Event listenner to shuffle the deck;
+                Calls the shuffle function on the htmlcollection of
+                cards which redefines every cards index;
+                The loop appends each card to the deck;
+    */
+    let allCards2 = shuffle(allCards);
+    for(let i = 0; i < allCards2.length; i ++) {
+        theDeck[0].appendChild(allCards2[i]);
+    }
+})
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
