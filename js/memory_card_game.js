@@ -5,7 +5,7 @@
  * The shuffle function will assign new index values
  */
 
-const repeatButton = document.getElementById('restart');
+const restartButton = document.getElementById('restart');
 let allCards = document.getElementsByClassName('card');
 let theDeck = document.getElementById('the-deck');
 let clickedCards = [];
@@ -15,28 +15,9 @@ let count = 0;
 */
 
 
-allCards = shuffle(allCards);
-for(let i = 0; i < allCards.length; i ++) {
-    theDeck.appendChild(allCards[i]);
-};
+resetGame();
 
-repeatButton.addEventListener('click', function (){
-    /*
-    @description Event listenner to shuffle the deck;
-                Calls the shuffle function on the htmlcollection of
-                cards which redefines every cards index;
-                The loop appends each card to the deck;
-    */
-    let allCards2 = shuffle(allCards);
-    for(let i = 0; i < allCards2.length; i ++) {
-        theDeck.appendChild(allCards2[i]);
-        allCards2[i].classList.remove('match', 'show', 'open');
-    };
-    clickedCards = [];
-});
-
-
-
+restartButton.addEventListener('click', resetGame);
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -60,17 +41,17 @@ theDeck.addEventListener('click', function (event) {
      * toggles "show" and "open" classes on that element
     */
 
-
-    console.log(clickedCards);
-
     if (clickedCards.length < 2) {
         // if clickedCards already has 1 card it adds another; if it has 2 cards it wont add any other
         clickedCards.push(event.target);
         event.target.classList.add('open', 'show');
     };
 
+    console.log(clickedCards);
+
     if (clickedCards.length === 2) {
-        moveCounter();
+        count++;
+        moveCounter(count);
         comparator(clickedCards[0], clickedCards[1]);
         console.log('2 clicked cards')
     };
@@ -85,7 +66,7 @@ function comparator(firstCard, secondCard) {
     if (firstCard.children[0].classList.value === secondCard.children[0].classList.value) {
         firstCard.classList.toggle('match');
         secondCard.classList.toggle('match');
-        window.setTimeout(resetCards, 1000);
+        resetCards();
     } else {
         window.setTimeout(resetCards, 1000);
     };
@@ -99,15 +80,15 @@ function resetCards() {
 };
 
 
-function moveCounter() {
-    count++;
-    document.getElementById('move-counter').textContent = count;
+function moveCounter(num) {
+
+    document.getElementById('move-counter').textContent = num;
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     /*
-    * @description Gets the array and shuffles its element indices
+    * @description Gets the array and shuffles its elements indices
     * @param {array / HtmlCollection} array - The array, in this case the HtmlCollection (works as it has indices);
     * @returns {array / HtmlCollection} - The shuffled array / HtmlCollection;
     */
@@ -122,4 +103,21 @@ function shuffle(array) {
     };
 
     return array;
+};
+
+function resetGame() {
+
+    // shuffling cards and appending them to the DOM
+    allCards = shuffle(allCards);
+    for(let i = 0; i < allCards.length; i ++) {
+        theDeck.appendChild(allCards[i]);
+        allCards[i].classList.remove('match', 'show', 'open');
+    };
+
+    // resetting count to zero (0)
+    count = 0;
+    moveCounter(count);
+
+    // erasing clicked cards list
+    clickedCards = [];
 };
