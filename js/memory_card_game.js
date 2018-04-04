@@ -37,7 +37,9 @@ repeatButton.addEventListener('click', function (){
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     /*
-    @description Gets the array and shuffles its element indices
+    * @description Gets the array and shuffles its element indices
+    * @param {array / HtmlCollection} array - The array, in this case the HtmlCollection (works as it has indices);
+    * @returns {array / HtmlCollection} - The shuffled array / HtmlCollection;
     */
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -47,10 +49,10 @@ function shuffle(array) {
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
-    }
+    };
 
     return array;
-}
+};
 
 
 /*
@@ -70,20 +72,23 @@ function shuffle(array) {
 
 let card1, card1_classes, card2, card2_classes;
 
+
 theDeck.addEventListener('click', function (event) {
     /*
      * Gets the card element clicked (the target)
      * toggles "show" and "open" classes on that element
     */
-    event.target.classList.toggle('open');
-    event.target.classList.toggle('show');
 
+    event.target.classList.add('open', 'show');
+
+    // Assignment of clicked elements to variables
     if (card1 == undefined) {
         // get the first card info (class name)
         card1 = event.target;
         card1_classes = event.target.children[0].className;
     } else {
-        /* get the second card info if the first exists
+        /*
+         * get the second card info if the first exists
          * call the comparison function
         */
         card2 = event.target;
@@ -91,7 +96,7 @@ theDeck.addEventListener('click', function (event) {
         comparator(card1_classes, card2_classes);
         moveCounter();
     };
-})
+});
 
 function comparator(firstCard, secondCard) {
     /*
@@ -105,7 +110,7 @@ function comparator(firstCard, secondCard) {
     } else {
         window.setTimeout(resetCards, 1000);
     };
-}
+};
 
 function resetCards() {
     // removes the classes concerning visibility
@@ -113,6 +118,7 @@ function resetCards() {
     card2.classList.remove('open', 'show');
     eraseCards();
 };
+
 function eraseCards() {
     // erases variable info
     card1 = undefined;
