@@ -6,11 +6,18 @@
  */
 
 const repeatButton = document.getElementById('restart');
-
-
 let allCards = document.getElementsByClassName('card');
 let theDeck = document.getElementById('the-deck');
+let count = 0;
+/*
+ * the deck is shuffled for the first time when document loads
+*/
 
+
+let allCards2 = shuffle(allCards);
+for(let i = 0; i < allCards2.length; i ++) {
+    theDeck.appendChild(allCards2[i]);
+};
 
 repeatButton.addEventListener('click', function (){
     /*
@@ -22,8 +29,9 @@ repeatButton.addEventListener('click', function (){
     let allCards2 = shuffle(allCards);
     for(let i = 0; i < allCards2.length; i ++) {
         theDeck.appendChild(allCards2[i]);
-    }
-})
+        allCards2[i].classList.remove('match', 'show', 'open');
+    };
+});
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -59,7 +67,7 @@ function shuffle(array) {
 /*
  * Event listeners for the cards
 */
-let show = false;
+
 let card1, card1_classes, card2, card2_classes;
 
 theDeck.addEventListener('click', function (event) {
@@ -69,7 +77,6 @@ theDeck.addEventListener('click', function (event) {
     */
     event.target.classList.toggle('open');
     event.target.classList.toggle('show');
-    console.log(event.target);
 
     if (card1 == undefined) {
         // get the first card info (class name)
@@ -82,17 +89,38 @@ theDeck.addEventListener('click', function (event) {
         card2 = event.target;
         card2_classes = event.target.children[0].className;
         comparator(card1_classes, card2_classes);
+        moveCounter();
     };
 })
 
 function comparator(firstCard, secondCard) {
+    /*
+    * @description compares the two cards information
+    * Calls resetCards function with 1 second delay
+    */
     if (firstCard == secondCard) {
         card1.classList.toggle('match');
         card2.classList.toggle('match');
+        eraseCards();
     } else {
-        card1.classList.remove('open', 'show');
-        card2.classList.remove('open', 'show');
+        window.setTimeout(resetCards, 1000);
     };
+}
+
+function resetCards() {
+    // removes the classes concerning visibility
+    card1.classList.remove('open', 'show');
+    card2.classList.remove('open', 'show');
+    eraseCards();
+};
+function eraseCards() {
+    // erases variable info
     card1 = undefined;
     card2 = undefined;
-}
+};
+
+function moveCounter() {
+    count++;
+    console.log(count);
+    document.getElementById('move-counter').textContent = count;
+};
