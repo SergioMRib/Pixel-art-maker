@@ -6,7 +6,7 @@
  */
 
 const restartButton = document.getElementById('restart');
-let allCards = document.getElementsByClassName('card');
+
 let theDeck = document.getElementById('the-deck');
 let clickedCards = [];
 let count = 0;
@@ -40,6 +40,10 @@ theDeck.addEventListener('click', function (event) {
      * Gets the card element clicked (the target)
      * toggles "show" and "open" classes on that element
     */
+    if (event.target.nodeName !== 'LI') {
+        // verifi that a card (li tag) was clicked
+        return;
+    };
 
     if (clickedCards.length < 2) {
         // if clickedCards already has 1 card it adds another; if it has 2 cards it wont add any other
@@ -106,7 +110,8 @@ function shuffle(array) {
 };
 
 function resetGame() {
-
+    let allCards = document.getElementsByClassName('card');
+    console.log(allCards);
     // shuffling cards and appending them to the DOM
     allCards = shuffle(allCards);
     for(let i = 0; i < allCards.length; i ++) {
