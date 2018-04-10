@@ -96,24 +96,26 @@ function shuffle(array) {
     * @param {array / HtmlCollection} array - The array, in this case the HtmlCollection (works as it has indices);
     * @returns {array / HtmlCollection} - The shuffled array / HtmlCollection;
     */
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let shuffledArray = [];
+    let randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+    while (array.length !== 0) {
+        randomIndex = Math.floor(Math.random() * array.length);
+        shuffledArray.push(array[randomIndex]);
+        array.splice(randomIndex, 1);
     };
+    //console.log('Segue o shuffled array')
+    //console.log(shuffledArray);
 
-    return array;
+    return shuffledArray;
 };
 
 function resetGame() {
     let allCards = document.getElementsByClassName('card');
+
     console.log(allCards);
     // shuffling cards and appending them to the DOM
-    allCards = shuffle(allCards);
+    allCards = shuffle(Array.from(allCards));
     for(let i = 0; i < allCards.length; i ++) {
         theDeck.appendChild(allCards[i]);
         allCards[i].classList.remove('match', 'show', 'open');
