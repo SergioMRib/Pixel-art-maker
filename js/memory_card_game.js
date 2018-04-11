@@ -12,7 +12,9 @@ const restartButton = document.getElementById('restart'),
 let allCards = document.getElementsByClassName('card'),
     clickedCards = [],
     moveCount = 0,
-    matchedCards = 0;
+    matchedCards = 0,
+    startTime;
+
 /*
  * the deck is shuffled for the first time when document loads
 */
@@ -94,7 +96,7 @@ function resetCards() {
 
 
 function moveCounter(num) {
-
+    //updates the number of moves on the web page
     document.getElementById('move-counter').textContent = num;
 };
 
@@ -104,24 +106,22 @@ function shuffle(array) {
     * @param {array} array - The array converted from the HTMLCollection;
     * @returns {array} - The shuffled array;
     */
-    let shuffledArray = [];
-    let randomIndex;
+    let shuffledArray = [],
+        randomIndex;
 
     while (array.length !== 0) {
         randomIndex = Math.floor(Math.random() * array.length);
         shuffledArray.push(array[randomIndex]);
         array.splice(randomIndex, 1);
     };
-    //console.log('Segue o shuffled array')
-    //console.log(shuffledArray);
-
     return shuffledArray;
 };
 
 function resetGame() {
+    /*
+     * Deals with all the needed procedures to restart a game
+    */
 
-    theDeck.style.visibility='visible'
-    console.log(allCards);
     // shuffling cards and appending them to the DOM
     allCards = shuffle(Array.from(allCards));
     for(let i = 0; i < allCards.length; i ++) {
@@ -129,22 +129,62 @@ function resetGame() {
         allCards[i].classList.remove('match', 'show', 'open');
     };
 
-    // resetting count to zero (0)
+    // resetting move count to zero (0)
     moveCount = 0;
     moveCounter(moveCount);
 
-    // erasing clicked cards list
+    // erasing clicked cards array
     clickedCards = [];
+    // erasing matched cards counting
+    matchedCards = 0;
+    // restart the time
+    startTime = Date.now();
 };
 
 function gameWin() {
+
+    // calculating the time it took to finish
+    let timeText = timer();
+
+    // show winner alert and hide deck
     winnerAlert.classList.toggle('hidden');
     theDeck.classList.toggle('hidden');
+    // show the scores
     document.getElementById('score').innerText = moveCount;
+    document.getElementById('time').innerText = timeText;
+};
+
+function timer() {
+    /*
+     * Calculates the time passed
+     * Uses the startTime variable whose value is assigned outside of this function
+     */
+    let time = Date.now(),
+        elapsedTime = time - startTime;
+
+    let days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24)),
+        hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000),
+        text;
+
+    //Creating the output according to the time passed
+    if (hours !== 0) {
+        //if it took more than 1hour
+        text = hours + ' hours, ' + minutes + ' minutes and ' + seconds + ' seconds';
+    } else if (minutes !== 0) {
+        //if it took more than 1minute
+        text = minutes + ' minutes and ' + seconds + ' seconds';
+    } else {
+        //if it took less than 1 minute
+        text = seconds + ' seconds';
+    };
+    console.log(text);
+    return text;
 };
 
 winnerAlert.addEventListener('click', function(){
-    // event listener to start a new game
+    // event listener to start a new game after winning
     gameWin();
     resetGame();
 });

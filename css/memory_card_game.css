@@ -38,7 +38,6 @@ h1 {
  */
 
 .deck {
-    visibility: hidden;
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
