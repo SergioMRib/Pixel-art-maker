@@ -12,7 +12,7 @@
 
     <div class="container">
         <header>
-            <h1>Matching Game</h1>
+            <h1>Memory Card Game</h1>
         </header>
 
         <section class="score-panel">
@@ -25,7 +25,8 @@
         	<span id="move-counter" class="moves"></span> Moves
 
             <div id="restart" class="restart">
-        		<i class="fa fa-repeat"></i>
+                Restart Game
+                <i class="fa fa-repeat"></i>
         	</div>
         </section>
 
@@ -79,6 +80,12 @@
                 <i class="fa fa-cube"></i>
             </li>
         </ul>
+        <div class="winner-alert hidden">
+            <h2 class="winner-text">You won!</h2>
+            <span>It took you <span id="score"></span> moves to find all pairs!</span>
+            <p>Your time was: <span id="time"></span></p>
+            <p class="winner-text">Click me to play again</p>
+        </div>
     </div>
 
     <script src="js/memory_card_game.js"></script>

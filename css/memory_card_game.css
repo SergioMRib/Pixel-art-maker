@@ -38,6 +38,7 @@ h1 {
  */
 
 .deck {
+    visibility: hidden;
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
@@ -106,4 +107,22 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+.winner-alert {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    color: whitesmoke;
+    top: 150px;
+    width: 500px;
+    height: 200px;
+    background-color: #2e3d49;
+    border-radius: 10px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+
+}
+.hidden{
+    display: none;
 }

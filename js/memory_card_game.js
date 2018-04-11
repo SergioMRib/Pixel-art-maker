@@ -5,11 +5,14 @@
  * The shuffle function will assign new index values
  */
 
-const restartButton = document.getElementById('restart');
+const restartButton = document.getElementById('restart'),
+      theDeck = document.getElementById('the-deck'),
+      winnerAlert = document.getElementsByClassName('winner-alert')[0];
 
-let theDeck = document.getElementById('the-deck');
-let clickedCards = [];
-let count = 0;
+let allCards = document.getElementsByClassName('card'),
+    clickedCards = [],
+    moveCount = 0,
+    matchedCards = 0;
 /*
  * the deck is shuffled for the first time when document loads
 */
@@ -54,10 +57,15 @@ theDeck.addEventListener('click', function (event) {
     console.log(clickedCards);
 
     if (clickedCards.length === 2) {
-        count++;
-        moveCounter(count);
+        //When there are two cards, a move is counted and the comparison is triggered
+        moveCount++;
+        moveCounter(moveCount);
         comparator(clickedCards[0], clickedCards[1]);
         console.log('2 clicked cards')
+    };
+
+    if (matchedCards === (allCards.length/2)) {
+        window.setTimeout(gameWin, 1000);
     };
 
 });
@@ -70,6 +78,7 @@ function comparator(firstCard, secondCard) {
     if (firstCard.children[0].classList.value === secondCard.children[0].classList.value) {
         firstCard.classList.toggle('match');
         secondCard.classList.toggle('match');
+        matchedCards++;
         resetCards();
     } else {
         window.setTimeout(resetCards, 1000);
@@ -89,12 +98,11 @@ function moveCounter(num) {
     document.getElementById('move-counter').textContent = num;
 };
 
-// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     /*
-    * @description Gets the array and shuffles its elements indices
-    * @param {array / HtmlCollection} array - The array, in this case the HtmlCollection (works as it has indices);
-    * @returns {array / HtmlCollection} - The shuffled array / HtmlCollection;
+    * @description Gets the array, removes a random index element and pushes it to the shuffled array
+    * @param {array} array - The array converted from the HTMLCollection;
+    * @returns {array} - The shuffled array;
     */
     let shuffledArray = [];
     let randomIndex;
@@ -111,8 +119,8 @@ function shuffle(array) {
 };
 
 function resetGame() {
-    let allCards = document.getElementsByClassName('card');
 
+    theDeck.style.visibility='visible'
     console.log(allCards);
     // shuffling cards and appending them to the DOM
     allCards = shuffle(Array.from(allCards));
@@ -122,9 +130,21 @@ function resetGame() {
     };
 
     // resetting count to zero (0)
-    count = 0;
-    moveCounter(count);
+    moveCount = 0;
+    moveCounter(moveCount);
 
     // erasing clicked cards list
     clickedCards = [];
 };
+
+function gameWin() {
+    winnerAlert.classList.toggle('hidden');
+    theDeck.classList.toggle('hidden');
+    document.getElementById('score').innerText = moveCount;
+};
+
+winnerAlert.addEventListener('click', function(){
+    // event listener to start a new game
+    gameWin();
+    resetGame();
+});
