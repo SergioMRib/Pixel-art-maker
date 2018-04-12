@@ -48,6 +48,9 @@ theDeck.addEventListener('click', function (event) {
     if (event.target.nodeName !== 'LI') {
         // verifi that a card (li tag) was clicked
         return;
+    } else if (clickedCards[0] === event.target) {
+        // verifi that second clicked card is different from first
+        return;
     };
 
     if (clickedCards.length < 2) {
