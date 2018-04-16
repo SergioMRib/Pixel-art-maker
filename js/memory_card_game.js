@@ -7,6 +7,8 @@
 
 const restartButton = document.getElementById('restart'),
       theDeck = document.getElementById('the-deck'),
+      scorePanel = document.getElementsByClassName('score-panel')[0],
+      starsList = document.getElementsByClassName('stars')[0],
       winnerAlert = document.getElementsByClassName('winner-alert')[0];
 
 let allCards = document.getElementsByClassName('card'),
@@ -48,8 +50,9 @@ theDeck.addEventListener('click', function (event) {
     if (event.target.nodeName !== 'LI') {
         // verifi that a card (li tag) was clicked
         return;
-    } else if (clickedCards[0] === event.target) {
+    } else if (clickedCards[0] === event.target || clickedCards[1] === event.target) {
         // verifi that second clicked card is different from first
+        // and also preventing a third click to get through
         return;
     };
 
@@ -94,13 +97,25 @@ function resetCards() {
     // removes the classes concerning visibility
     clickedCards[0].classList.remove('open', 'show');
     clickedCards[1].classList.remove('open', 'show');
-    clickedCards= [];
+    clickedCards = [];
 };
 
 
 function moveCounter(num) {
     //updates the number of moves on the web page
     document.getElementById('move-counter').textContent = num;
+    //removes stars according to number of moves
+    if (starsList.children.length === 0) {
+        return;
+    }
+
+    if (num === 15) {
+        starsList.children[0].children[0].classList.toggle('hidden');
+    } else if (num === 18) {
+        starsList.children[1].children[0].classList.toggle('hidden');
+    } else if (num === 22) {
+        starsList.children[2].children[0].classList.toggle('hidden');
+    };
 };
 
 function shuffle(array) {
@@ -132,6 +147,14 @@ function resetGame() {
         allCards[i].classList.remove('match', 'show', 'open');
     };
 
+    // readding the stars
+    for(let i = 0; i < starsList.children.length; i++) {
+        starsList.children[i].children[0].classList.remove('hidden');
+    };
+
+    scorePanel.prepend(starsList);
+
+
     // resetting move count to zero (0)
     moveCount = 0;
     moveCounter(moveCount);
@@ -155,11 +178,12 @@ function gameWin() {
     // show the scores
     document.getElementById('score').innerText = moveCount;
     document.getElementById('time').innerText = timeText;
+    winnerAlert.appendChild(starsList);
 };
 
 function timer() {
     /*
-     * Calculates the time passed
+     * Calculates the time elapsed
      * Uses the startTime variable whose value is assigned outside of this function
      */
     let time = Date.now(),

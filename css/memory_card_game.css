@@ -21,6 +21,11 @@ body {
     font-family: 'Coda', cursive;
 }
 
+li {
+    list-style: none;
+    display: inline-block;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -91,16 +96,11 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
+.stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-}
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
 }
 
 .score-panel .restart {
@@ -116,12 +116,13 @@ h1 {
     color: whitesmoke;
     top: 150px;
     width: 500px;
-    height: 200px;
+    height: 300px;
     background-color: #2e3d49;
     border-radius: 10px;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 
 }
-.hidden{
+
+.hidden {
     display: none;
 }
