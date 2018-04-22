@@ -27,7 +27,8 @@
             <div id="restart" class="restart">
                 Restart Game
                 <i class="fa fa-repeat"></i>
-        	</div>
+            </div>
+            <p class="time-score">Time: <span id="time">0</span></p>
         </section>
 
         <ul id="the-deck"  class="deck">
@@ -83,11 +84,11 @@
         <div class="winner-alert hidden">
             <h2 class="winner-text">You won!</h2>
             <span>It took you <span id="score"></span> moves to find all pairs!</span>
-            <p>Your time was: <span id="time"></span></p>
-            <p class="winner-text">Click me to play again</p>
+
+            <p id="clickToPlay" class="winner-text">Click me to play again</p>
         </div>
     </div>
-
+    <p id="demo"></p>
     <script src="js/memory_card_game.js"></script>
 </body>
 </html>

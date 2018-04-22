@@ -7,15 +7,21 @@
 
 const restartButton = document.getElementById('restart'),
       theDeck = document.getElementById('the-deck'),
+      winnerAlert = document.getElementsByClassName('winner-alert')[0],
       scorePanel = document.getElementsByClassName('score-panel')[0],
       starsList = document.getElementsByClassName('stars')[0],
-      winnerAlert = document.getElementsByClassName('winner-alert')[0];
+      timeScore = document.getElementsByClassName('time-score')[0],
+      moveScore = document.getElementById('move-counter'),
+      clickToPlay = document.getElementById('clickToPlay');
 
 let allCards = document.getElementsByClassName('card'),
     clickedCards = [],
     moveCount = 0,
     matchedCards = 0,
-    startTime;
+    gameRunning = false,
+    startTime,
+    time,
+    timerId;
 
 /*
  * the deck is shuffled for the first time when document loads
@@ -47,6 +53,15 @@ theDeck.addEventListener('click', function (event) {
      * Gets the card element clicked (the target)
      * toggles "show" and "open" classes on that element
     */
+
+    //start timer
+    if (!gameRunning) {
+        gameRunning = true;
+        startTime = Date.now();
+        timerId = setInterval(timer, 1000);
+    };
+
+
     if (event.target.nodeName !== 'LI') {
         // verifi that a card (li tag) was clicked
         return;
@@ -147,13 +162,18 @@ function resetGame() {
         allCards[i].classList.remove('match', 'show', 'open');
     };
 
-    // readding the stars
+    // resetting and readding the stars
     for(let i = 0; i < starsList.children.length; i++) {
         starsList.children[i].children[0].classList.remove('hidden');
     };
 
     scorePanel.prepend(starsList);
 
+    //resetting the time score and timer
+    clearInterval(timerId);
+    document.getElementById('time').innerText = 0;
+    scorePanel.appendChild(timeScore);
+    gameRunning = false;
 
     // resetting move count to zero (0)
     moveCount = 0;
@@ -163,22 +183,23 @@ function resetGame() {
     clickedCards = [];
     // erasing matched cards counting
     matchedCards = 0;
-    // restart the time
-    startTime = Date.now();
 };
 
 function gameWin() {
 
-    // calculating the time it took to finish
-    let timeText = timer();
+    // stopping the timer
+    gameRunning = false;
+    clearInterval(timerId);
 
-    // show winner alert and hide deck
+
+    // show winner alert and hide deck and restart button
     winnerAlert.classList.toggle('hidden');
     theDeck.classList.toggle('hidden');
+    scorePanel.classList.toggle('hidden');
     // show the scores
     document.getElementById('score').innerText = moveCount;
-    document.getElementById('time').innerText = timeText;
-    winnerAlert.appendChild(starsList);
+    clickToPlay.before(timeScore);
+    clickToPlay.before(starsList);
 };
 
 function timer() {
@@ -186,8 +207,8 @@ function timer() {
      * Calculates the time elapsed
      * Uses the startTime variable whose value is assigned outside of this function
      */
-    let time = Date.now(),
-        elapsedTime = time - startTime;
+    time = Date.now();
+    let elapsedTime = time - startTime;
 
     let days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24)),
         hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -201,12 +222,13 @@ function timer() {
         text = hours + ' hours, ' + minutes + ' minutes and ' + seconds + ' seconds';
     } else if (minutes !== 0) {
         //if it took more than 1minute
-        text = minutes + ' minutes and ' + seconds + ' seconds';
+        text = minutes + ' m ' + seconds + ' s';
     } else {
         //if it took less than 1 minute
-        text = seconds + ' seconds';
+        text = seconds + ' s';
     };
     console.log(text);
+    document.getElementById('time').innerText = text;
     return text;
 };
 

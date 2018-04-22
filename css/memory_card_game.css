@@ -108,6 +108,10 @@ h1 {
     cursor: pointer;
 }
 
+.time-score {
+    text-align: center;
+}
+
 .winner-alert {
     display: block;
     cursor: pointer;
