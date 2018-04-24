@@ -14,6 +14,8 @@ There is no time limit.
 There is no move limit.
 The stars score decrease as the move count increases.
 
+You may restart your game after winning or anytime by clicking on "restart".
+
 ## Dependencies
 This page's icons come from Font Awesome.
 https://fontawesome.com/
