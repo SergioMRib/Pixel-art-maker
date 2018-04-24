@@ -1,6 +1,6 @@
 # Memory Card Game
 
-This game's functionality was developped by [Sérgio Ribeiro](https://sergiomrib.github.com).
+This game's functionality was developped by [Sérgio Ribeiro](https://sergiomrib.github.io).
 
 This project was created as part of the Udacity's FEND NanoDegree.
 
