@@ -16,7 +16,9 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.position[0] += this.speed;
+    this.position[0] += this.speed * (dt*50); // 50 is a correction factor for dt
+
+    // when enemy reaches canvas limit redraw on the left and calculate new speed
     if (this.position[0] >= 505) {
         this.position[0] = -101;
         this.speed = Math.floor(Math.random() * 10) + 3;
@@ -35,29 +37,42 @@ Enemy.prototype.render = function () {
 class Player {
     constructor(x, y) {
         this.position = [x, y];
+        this.sprite = 'images/char-boy.png'
     }
     render() {
-        //ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
+        ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
     }
     update() {
         return
     }
-    handleInput() {
-        return
+    handleInput(pressedKey) {
+        if (pressedKey === 'left') {
+            this.position[0] -= 101;
+        };
+        if (pressedKey === 'right') {
+            this.position[0] += 101;
+        };
+        if (pressedKey === 'up') {
+            this.position[1] -= 83;
+        };
+        if (pressedKey === 'down') {
+            this.position[1] += 83;
+        };
     }
-
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+
 let enemy1 = new Enemy(10, 60, 10),
     enemy2 = new Enemy(10, 145, 4),
     enemy3 = new Enemy(10, 225, 3);
 
 let allEnemies = [enemy1, enemy2, enemy3];
 
-let player = new Player(200, 300);
+// Place the player object in a variable called player
+let player = new Player(200, 315);
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
@@ -67,6 +82,6 @@ document.addEventListener('keyup', function (e) {
         39: 'right',
         40: 'down'
     };
-
+    console.log('key pressed')
     player.handleInput(allowedKeys[e.keyCode]);
 });
