@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+var Enemy = function (x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -12,11 +12,11 @@ var Enemy = function(x, y, speed) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.position[0] += this.speed * (dt*50); // 50 is a correction factor for dt
+    this.position[0] += this.speed * (dt * 50); // 50 is a correction factor for dt
 
     // when enemy reaches canvas limit redraw on the left and calculate new speed
     if (this.position[0] >= 505) {
@@ -48,15 +48,27 @@ class Player {
     handleInput(pressedKey) {
         if (pressedKey === 'left') {
             this.position[0] -= 101;
-        };
+            if (this.position[0] <= -10) {
+                this.position[0] = 402;
+                }
+            };
         if (pressedKey === 'right') {
             this.position[0] += 101;
+            if (this.position[0] >= 500) {
+                this.position[0] = -2;
+            }
         };
         if (pressedKey === 'up') {
             this.position[1] -= 83;
+            if (this.position[1] <= -100) {
+                this.position[1] += 83;
+            }
         };
         if (pressedKey === 'down') {
             this.position[1] += 83;
+            if (this.position[1] >= 400) {
+                this.position[1] -= 83;
+            }
         };
     }
 }
@@ -71,7 +83,7 @@ let enemy1 = new Enemy(10, 60, 10),
 let allEnemies = [enemy1, enemy2, enemy3];
 
 // Place the player object in a variable called player
-let player = new Player(200, 315);
+const player = new Player(200, 315);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -84,4 +96,5 @@ document.addEventListener('keyup', function (e) {
     };
     console.log('key pressed')
     player.handleInput(allowedKeys[e.keyCode]);
+    console.log(player.position);
 });
