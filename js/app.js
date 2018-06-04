@@ -7,6 +7,8 @@ var Enemy = function (x, y, speed) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.position = [x, y];
+    this.width = 90;
+    this.height = 75;
     this.speed = speed;
 };
 
@@ -30,6 +32,18 @@ Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1]);
 };
 
+Enemy.prototype.checkCollisions = function () {
+    //console.log("Checked for collision");
+
+    if (this.position[0] < player.position[0] + player.width  && this.position[0] + this.width  > player.position[0] &&
+		this.position[1] < player.position[1] + player.height && this.position[1] + this.height > player.position[1]) {
+        player.collisions += 1;
+            console.log(`Times collided: ${player.collisions}`);
+        player.position = [200, 380];
+
+    };
+};
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -37,7 +51,10 @@ Enemy.prototype.render = function () {
 class Player {
     constructor(x, y) {
         this.position = [x, y];
-        this.sprite = 'images/char-boy.png'
+        this.sprite = 'images/char-boy.png';
+        this.width = 90;
+        this.height = 75;
+        this.collisions = 0;
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
@@ -66,7 +83,7 @@ class Player {
         };
         if (pressedKey === 'down') {
             this.position[1] += 83;
-            if (this.position[1] >= 400) {
+            if (this.position[1] >= 470) {
                 this.position[1] -= 83;
             }
         };
@@ -76,14 +93,14 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
-let enemy1 = new Enemy(10, 60, 10),
-    enemy2 = new Enemy(10, 145, 4),
-    enemy3 = new Enemy(10, 225, 3);
+let enemy1 = new Enemy(10, 135, 10);
+    enemy2 = new Enemy(10, 215, 4),
+    enemy3 = new Enemy(10, 305, 3);
 
 let allEnemies = [enemy1, enemy2, enemy3];
 
 // Place the player object in a variable called player
-const player = new Player(200, 315);
+const player = new Player(200, 380);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
