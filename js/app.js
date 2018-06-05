@@ -1,3 +1,8 @@
+// get html elements
+let livesScoreTag = document.getElementById('player-lives'),
+    scoreTag = document.getElementById('player-score');
+
+
 // Enemies our player must avoid
 var Enemy = function (x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -32,15 +37,12 @@ Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1]);
 };
 
-Enemy.prototype.checkCollisions = function () {
+Enemy.prototype.checkCollisions = function (player) {
     //console.log("Checked for collision");
 
     if (this.position[0] < player.position[0] + player.width  && this.position[0] + this.width  > player.position[0] &&
 		this.position[1] < player.position[1] + player.height && this.position[1] + this.height > player.position[1]) {
-        player.collisions += 1;
-            console.log(`Times collided: ${player.collisions}`);
-        player.position = [200, 380];
-
+        player.reset(false);
     };
 };
 
@@ -55,12 +57,33 @@ class Player {
         this.width = 90;
         this.height = 75;
         this.collisions = 0;
+        this.lives = 5;
+        this.score = 0;
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
     }
     update() {
-        return
+        if (this.position[1] < 100) {;
+            this.reset(true);
+        };
+        (this.lives === 0) ? gameover(): true;
+    }
+    updateScores() {
+        //method to update scores on the page
+        livesScoreTag.innerText = this.lives;
+        scoreTag.innerText = this.score;
+    }
+    reset(win) {
+        if (win) {
+            this.score += 1;
+        }
+        if (win === false) {
+            this.collisions += 1;
+            this.lives -= 1;
+        }
+        this.position = [200, 380];
+        this.updateScores();
     }
     handleInput(pressedKey) {
         if (pressedKey === 'left') {
@@ -111,7 +134,12 @@ document.addEventListener('keyup', function (e) {
         39: 'right',
         40: 'down'
     };
-    console.log('key pressed')
     player.handleInput(allowedKeys[e.keyCode]);
     console.log(player.position);
 });
+
+let gameover = function () {
+    console.log('gameover pal');
+    alert('gameover');
+    player.lives = 5; //to be changed!!!
+};
