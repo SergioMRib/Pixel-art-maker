@@ -11,6 +11,14 @@
 
 html,
 body {
+    font-family: 'Coda', cursive;
+    background-image:
+
+                    linear-gradient(
+                      rgba(255, 255, 255, 0.9),
+                      rgba(255, 255, 255, 0.8)
+                    ),
+                    url("/images/background.png");
     width: 100%;
     height: 100%;
     margin: 0;
@@ -19,9 +27,14 @@ body {
 }
 
 header {
+    background-color: #6d82dd;
     margin: 0 auto;
     height: 60px;
-    width: 70%;
+}
+h2 {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 main {
@@ -46,13 +59,15 @@ p {
 }
 
 #restart-button {
+
     display: block;
     margin: 60px auto 0;
     min-height: 25px;
     padding: 10px;
     width: 90%;
     cursor: pointer;
-    background-color: green;
+    background-image: url("/images/button.png");
+    background-color: #dfd9c8;
 }
 
 .winner-alert {
@@ -64,11 +79,6 @@ p {
     height: 100%;
     background-color: rgba(24, 24, 24, 0.9);
     color: white;
-}
-
-h2 {
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .hidden {
