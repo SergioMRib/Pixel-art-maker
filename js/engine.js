@@ -85,6 +85,8 @@ var Engine = (function (global) {
      */
     function update(dt) {
         updateEntities(dt);
+
+        //collision checking
         allEnemies.forEach(function(enemy) {
             enemy.checkCollisions(player);
         });
@@ -98,6 +100,9 @@ var Engine = (function (global) {
      * render methods.
      */
     function updateEntities(dt) {
+        /*
+        * Calculates position of all game elements
+        */
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -169,7 +174,10 @@ var Engine = (function (global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        /*
+        * For now its only usage is to draw scores at initialization
+        */
+        player.updateScores();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
