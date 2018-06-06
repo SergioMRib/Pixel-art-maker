@@ -95,20 +95,20 @@ class Player {
             this.collisions += 1;
             this.lives -= 1;
         }
-        this.position = [200, 380];
+        this.position = [215, 380];
         this.updateScores();
     }
     handleInput(pressedKey) {
         if (pressedKey === 'left') {
             this.position[0] -= 101;
             if (this.position[0] <= -10) {
-                this.position[0] = 402;
+                this.position[0] = 417;
                 }
             };
         if (pressedKey === 'right') {
             this.position[0] += 101;
             if (this.position[0] >= 500) {
-                this.position[0] = -2;
+                this.position[0] = 13;
             }
         };
         if (pressedKey === 'up') {
@@ -136,7 +136,7 @@ let enemy1 = new Enemy(10, 135, 10);
 let allEnemies = [enemy1, enemy2, enemy3];
 
 // Place the player object in a variable called player
-const player = new Player(200, 380);
+const player = new Player(215, 380);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
