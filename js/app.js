@@ -1,6 +1,7 @@
 // get html elements
 let livesScoreTag = document.getElementById('player-lives'),
     scoreTag = document.getElementById('player-score'),
+    scores = document.getElementsByClassName('scores')[0],
     winnerAlert = document.getElementsByClassName('winner-alert')[0];
 const restartButton = document.getElementById('restart-button');
 
@@ -84,6 +85,8 @@ class Player {
             this.lives = 5;
             this.score = 0;
             isRunning = true;
+            winnerAlert.classList.add('hidden');
+            restartButton.before(scores);
         };
         if (win === true) {
             this.score += 1 * this.multiplier;
@@ -153,8 +156,12 @@ restartButton.addEventListener('click', function () {
     player.reset('fullReset');
 });
 
+winnerAlert.addEventListener('click', function () {
+    player.reset('fullReset');
+});
 
 function gameover() {
     isRunning = false;
     winnerAlert.classList.remove('hidden');
+    winnerAlert.appendChild(scores);
 };
