@@ -1,6 +1,8 @@
 // get html elements
 let livesScoreTag = document.getElementById('player-lives'),
-    scoreTag = document.getElementById('player-score');
+    scoreTag = document.getElementById('player-score'),
+    winnerAlert = document.getElementsByClassName('winner-alert')[0];
+const restartButton = document.getElementById('restart-button');
 
 
 // Enemies our player must avoid
@@ -59,6 +61,7 @@ class Player {
         this.collisions = 0;
         this.lives = 5;
         this.score = 0;
+        this.multiplier = 1; //this is to be increased everytime a gem is cathed
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
@@ -75,8 +78,15 @@ class Player {
         scoreTag.innerText = this.score;
     }
     reset(win) {
-        if (win) {
-            this.score += 1;
+        if (win === 'fullReset') {
+            // to reinitiate the game
+            this.collisions = 0;
+            this.lives = 5;
+            this.score = 0;
+            isRunning = true;
+        };
+        if (win === true) {
+            this.score += 1 * this.multiplier;
         }
         if (win === false) {
             this.collisions += 1;
@@ -138,8 +148,13 @@ document.addEventListener('keyup', function (e) {
     console.log(player.position);
 });
 
-let gameover = function () {
-    console.log('gameover pal');
-    alert('gameover');
-    player.lives = 5; //to be changed!!!
+restartButton.addEventListener('click', function () {
+    console.log('restart button clicked')
+    player.reset('fullReset');
+});
+
+
+function gameover() {
+    isRunning = false;
+    winnerAlert.classList.remove('hidden');
 };

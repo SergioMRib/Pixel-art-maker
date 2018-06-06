@@ -4,10 +4,10 @@
  * a simple "caching" layer so it will reuse cached images if you attempt
  * to load the same image multiple times.
  */
-(function() {
+(function () {
     var resourceCache = {};
     var loading = [];
-    var readyCallbacks = [];
+    window.readyCallbacks = [];
 
     /* This is the publicly accessible image loading function. It accepts
      * an array of strings pointing to image files or a string for a single

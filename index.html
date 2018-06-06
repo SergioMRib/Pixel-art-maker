@@ -6,15 +6,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="score">
-        <p>Player lives: <span id="player-lives"></span></p>
-        <p>Player score: <span id="player-score"></span></p>
-    </div>
-    <div class="winner-alert hidden">
-        <h2 class="winner-text">You won!</h2>
-    </div>
+    <header>Frogger: The arcade game</header>
+    <main>
+        <div class="left-panel">
+            <p>Player lives: <span id="player-lives"></span></p>
+            <p>Player score: <span id="player-score"></span></p>
+            <button id="restart-button">Click to restart</button>
+        </div>
+        <div id="canvas-container" ></div>
+        <div class="winner-alert hidden">
+            <h2 class="winner-text">Game Over!</h2>
+        </div>
+
+    </main>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+
 </body>
 </html>
