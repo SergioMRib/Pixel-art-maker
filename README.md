@@ -1,6 +1,25 @@
-frontend-nanodegree-arcade-game
+Arcade Game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+ This project is a part of Udacity's Frontend Nanodegree program and was develloped by Sérgio. Engine.js and Resources.js base files were previously provided.
+
+ ## How to play
+ Open the main page (index.html) to launch everything and the game will start as soon as it is ready.
+
+ ## Instructions
+
+ ### Main goal:
+ Cross the road as many times as possible until you run out of lives.
+
+ * Use arrows to move up, down, left or right;
+ * Avoid the bugs as they will take lives;
+ * Reach the water to increase score by one;
+ * Press spacebar or click restart button to restart the game.
+
+Enjoy!
+
+
+## Reference guides
+Review [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for project specifications.
 
 For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
