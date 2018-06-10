@@ -189,8 +189,15 @@ var Engine = (function (global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
     ]);
+
+    /* ResourcesAudio.load([
+        'sounds/Applause.mp3',
+        'sounds/Jump.mp3',
+        'sounds/Slap.mp3'
+    ]);
+     */
     Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window
