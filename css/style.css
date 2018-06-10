@@ -44,6 +44,13 @@ main {
     text-align: center;
 }
 
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #e73a00;
+}
+
 .left-panel {
     margin: 50px 10px;
     width: 150px;

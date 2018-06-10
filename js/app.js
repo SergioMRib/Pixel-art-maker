@@ -2,7 +2,8 @@
 let livesScoreTag = document.getElementById('player-lives'),
     scoreTag = document.getElementById('player-score'),
     scores = document.getElementsByClassName('scores')[0],
-    winnerAlert = document.getElementsByClassName('winner-alert')[0];
+    winnerAlert = document.getElementsByClassName('winner-alert')[0],
+    lives = Array.from(document.getElementsByClassName('fa-heart'));
 const restartButton = document.getElementById('restart-button');
 
 
@@ -62,7 +63,7 @@ class Player {
         this.collisions = 0;
         this.lives = 5;
         this.score = 0;
-        this.multiplier = 1; //this is to be increased everytime a gem is cathed
+        this.multiplier = 1; //TODO: this is to be increased everytime a gem is cathed
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
@@ -75,18 +76,33 @@ class Player {
     }
     updateScores() {
         //method to update scores on the page
-        livesScoreTag.innerText = this.lives;
+        /* for(let i = 0; i < this.lives; i++) {
+            scoreTag.
+        }; */
+
+        //livesScoreTag.innerText = this.lives;
+
         scoreTag.innerText = this.score;
     }
     reset(win) {
+        /*
+        * This method resets the player and updates scores according to one of three options:
+        *  - win === fullReset to restart scores and position
+        *  - win === true after reaching water; resets position and increases score
+        *  - win === false after being hit; resets position and decreases lives
+        */
         if (win === 'fullReset') {
-            // to reinitiate the game
             this.collisions = 0;
             this.lives = 5;
             this.score = 0;
             isRunning = true;
+
             winnerAlert.classList.add('hidden');
-            restartButton.before(scores);
+            lives.forEach(element => {
+                element.classList.remove('hidden');
+            });
+
+            restartButton.before(scoreTag);
         };
         if (win === true) {
             this.score += 1 * this.multiplier;
@@ -94,6 +110,7 @@ class Player {
         if (win === false) {
             this.collisions += 1;
             this.lives -= 1;
+            lives[this.lives].classList.add('hidden');
         }
         this.position = [215, 380];
         this.updateScores();
@@ -163,5 +180,5 @@ winnerAlert.addEventListener('click', function () {
 function gameover() {
     isRunning = false;
     winnerAlert.classList.remove('hidden');
-    winnerAlert.appendChild(scores);
+    winnerAlert.appendChild(scoreTag);
 };
