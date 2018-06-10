@@ -45,15 +45,27 @@ main {
 }
 
 ul, li {
-    list-style-type: none;
     margin: 0;
     padding: 0;
-    color: #e73a00;
 }
 
 p {
     margin: 15px auto;
     text-align: center;
+}
+
+.hearts li {
+    list-style-type: none;
+    color: #e73a00;
+}
+
+.instructions {
+    font-size: small;
+}
+
+.instructions li {
+    list-style-type: disc;
+    text-align: left;
 }
 
 .left-panel {
