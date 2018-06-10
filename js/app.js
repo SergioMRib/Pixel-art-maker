@@ -69,7 +69,7 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.position[0], this.position[1])
     }
     update() {
-        if (this.position[1] < 100) {;
+        if (this.position[1] < 100) {
             this.reset(true);
         };
         (this.lives === 0) ? gameover(): true;
@@ -166,6 +166,10 @@ document.addEventListener('keyup', function (e) {
     };
     player.handleInput(allowedKeys[e.keyCode]);
     console.log(player.position);
+    if (e.keyCode === 32 ) {
+        console.log('space bar pressed');
+        player.reset('fullReset');
+    };
 });
 
 restartButton.addEventListener('click', function () {
@@ -180,5 +184,5 @@ winnerAlert.addEventListener('click', function () {
 function gameover() {
     isRunning = false;
     winnerAlert.classList.remove('hidden');
-    winnerAlert.appendChild(scoreTag);
+    winnerAlert.insertBefore(scoreTag, winnerAlert.children[2])
 };
