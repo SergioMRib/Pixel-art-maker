@@ -1,10 +1,12 @@
+
+
 // get html elements
-let livesScoreTag = document.getElementById('player-lives'),
+const livesScoreTag = document.getElementById('player-lives'),
     scoreTag = document.getElementById('player-score'),
     scores = document.getElementsByClassName('scores')[0],
     winnerAlert = document.getElementsByClassName('winner-alert')[0],
-    lives = Array.from(document.getElementsByClassName('fa-heart'));
-const restartButton = document.getElementById('restart-button');
+    lives = Array.from(document.getElementsByClassName('fa-heart')),
+    restartButton = document.getElementById('restart-button');
 
 
 //Game sounds
@@ -49,8 +51,10 @@ Enemy.prototype.render = function () {
 Enemy.prototype.checkCollisions = function (player) {
     //console.log("Checked for collision");
 
-    if (this.position[0] < player.position[0] + player.width  && this.position[0] + this.width  > player.position[0] &&
-		this.position[1] < player.position[1] + player.height && this.position[1] + this.height > player.position[1]) {
+    if (this.position[0] < player.position[0] + player.width  &&
+        this.position[0] + this.width  > player.position[0] &&
+        this.position[1] < player.position[1] + player.height &&
+        this.position[1] + this.height > player.position[1]) {
         player.reset(false);
         player.playSounds('hit');
     };
