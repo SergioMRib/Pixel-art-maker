@@ -190,7 +190,7 @@ var Engine = (function (global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-    ]);
+        ]);
 
     /* ResourcesAudio.load([
         'sounds/Applause.mp3',
