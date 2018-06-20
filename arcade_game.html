@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h2>Frogger: The arcade game</h2>
+    </header>
+    <main>
+        <div class="left-panel">
+            <div class="scores">
+                <p>Player lives</p>
+                <ul class="hearts">
+                    <li>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                    </li>
+                </ul>
+                <span id="player-lives"></span>
+                <p>Player score</p>
+                <span id="player-score"></span>
+            </div>
+            <p id="restart-button">Click to restart</p>
+            <p>Instructions</p>
+            <p class="instructions">
+                The goal is to cross the rocky floor as many times as possible until you run out of lives
+            </p>
+            <ul class="instructions">
+                <li>Use arrows to move your player</li>
+                <li>Avoid the bugs</li>
+                <li>Reach the water to increase score by one</li>
+                <li>Press spacebar to restart or click <em>restart button</em></li>
+            </ul>
+        </div>
+        <div id="canvas-container" ></div>
+        <div class="winner-alert hidden">
+            <h2 class="winner-text">Congratulations!</h2>
+            <p>Your score for this round was:</p>
+            <p class="reset-instructions">click anywhere or press spacebar</p>
+        </div>
+    </main>
+    <script src="js/resources.js"></script>
+    <!-- <script src="js/resources_audio.js"></script> -->
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+
+</body>
+</html>

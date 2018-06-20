@@ -1,0 +1,111 @@
+*, *:before, *:after {
+    /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+    -webkit-box-sizing: border-box;
+
+    /* Firefox (desktop or Android) 28- */
+    -moz-box-sizing: border-box;
+
+    /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Coda', cursive;
+    background-image:
+
+                    linear-gradient(
+                      rgba(255, 255, 255, 0.9),
+                      rgba(255, 255, 255, 0.8)
+                    ),
+                    url("/images/background.png");
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #6d82dd;
+    margin: 0 auto;
+    height: 60px;
+}
+h2 {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+main {
+    display: inline-flex;
+    margin: -30px auto;
+    top: 35px;
+    text-align: center;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 15px auto;
+    text-align: center;
+}
+
+.hearts li {
+    list-style-type: none;
+    color: #e73a00;
+}
+
+.instructions {
+    font-size: small;
+}
+
+.instructions li {
+    list-style-type: disc;
+    text-align: left;
+}
+
+.left-panel {
+    margin: 50px 10px;
+    width: 150px;
+}
+
+.winner-alert {
+    position: absolute;
+    padding-top: 150px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 24, 0.9);
+    color: white;
+    font-size: x-large;
+}
+
+.reset-instructions {
+    font-size: large;
+    margin-top: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+#canvas-container {
+    border: none;
+}
+
+#restart-button {
+
+    display: block;
+    margin: 60px auto 0;
+    min-height: 25px;
+    padding: 10px;
+    width: 90%;
+    cursor: pointer;
+    background-image: url("/images/button.png");
+    background-color: #dfd9c8;
+}
