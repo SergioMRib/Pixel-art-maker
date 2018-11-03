@@ -19,9 +19,7 @@ body {
     font-family: 'Roboto', 'Coda',  cursive;
 }
 
-div {
-    border: 1px solid #0c8fa7;
-}
+
 
 .container {
     display: grid;
