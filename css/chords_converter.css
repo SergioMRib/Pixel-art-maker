@@ -27,11 +27,12 @@ div {
     display: grid;
     gap: 5px;
     grid-template-columns: 1fr 50px 50px;
-    grid-template-rows: 50px auto 50px;
+    grid-template-rows: 50px auto auto 50px;
    /*  justify-content: center; */
     align-items: center;
     grid-template-areas:
     "header header menu"
+    "content chords modifiers"
     "content chords modifiers"
     ". panel panel"
     "footer footer footer";
@@ -116,6 +117,8 @@ div {
 .hidden {
     display:none;
 }
+
+
 
 /*
  * Styles for the deck of cards;
