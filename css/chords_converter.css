@@ -1,0 +1,150 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    background: #ffffff url('../images/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Roboto', 'Coda',  cursive;
+}
+
+div {
+    border: 1px solid #0c8fa7;
+}
+
+.container {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 50px 50px;
+    grid-template-rows: 50px auto auto 50px;
+   /*  justify-content: center; */
+    align-items: center;
+    grid-template-areas:
+    "header header menu"
+    "content chords modifiers"
+    "content chords modifiers"
+    ". panel panel"
+    "footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    justify-self: center;
+}
+.selection-of-chords {
+    grid-area: content;
+}
+.list-of-chords {
+    grid-area: chords;
+}
+.list-of-modifiers {
+    grid-area: modifiers;
+}
+
+.panel {
+    grid-area: panel;
+    cursor: pointer;
+}
+
+.footer {
+    grid-area: footer;
+    justify-self: center;
+}
+
+
+/*
+* Styles for the chords
+*/
+
+.list-of-chords, .list-of-modifiers {
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius: 2px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chord, .modifier {
+    text-align: center;
+    background: #2e3d49;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.selected-chord {
+    display: inline-flex;
+    margin-right: 5px;
+    list-style: none;
+    font-size: 20px;
+    color: #ff7402;
+    cursor: pointer;
+}
+
+.blank-line{
+    display:block;
+    width:auto;
+}
+
+.instructions {
+    position: absolute;
+    display: inline-block;
+    padding-left: 5px;
+    top: 40px;
+    left: 80px;
+    background-color: #7fcbf5;
+    font-size: 11px;
+}
+
+.instructions p {
+    font-size: 12px;
+    margin: 0px;
+    font-weight: 600;
+}
+.hidden {
+    display:none;
+}
+
+
+
+/*
+ * Styles for the deck of cards;
+ * THIS IS FOR REFERENCE ONLY
+
+.deck,
+.list-of-chords {
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius: 2px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    justify-content: space-between;
+    align-items: center;
+}
+
+li,
+.deck .card,
+.list-of-chords .card {
+    background: #2e3d49;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+*/

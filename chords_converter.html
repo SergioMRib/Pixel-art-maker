@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chord converter</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/chords_converter.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">A Simple Chord Transposer tool</header>
+        <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
+        <section class="selection-of-chords">
+            <div id="chords_selection">
+            </div>
+        </section>
+        <section class="list-of-chords">
+            <div id="chord_list">
+            </div>
+        </section>
+        <section class="list-of-modifiers">
+            <div id="modifiers_list">
+            </div>
+        </section>
+        <section class="panel">
+            <div id="up-button" class="restart">
+                <i class="fas fa-arrow-circle-up"></i>
+                half a step
+            </div>
+            <div id="down-button" class="restart">
+                <i class="fas fa-arrow-circle-down"></i>
+                half a step
+            </div>
+            <div id="new-line">
+                New line
+            </div>
+        </section>
+        <footer class="footer">Sérgio Ribeiro 2018</footer>
+        <!-- <ul id="all_chords"  class="deck">
+            <li class="card show">
+                C
+            </li>
+            <li class="card">
+                C#
+            </li>
+            <li class="card">
+                D
+            </li>
+            <li class="card">
+                D#
+            </li>
+            <li class="card">
+                E
+            </li>
+            <li class="card">
+                F
+            </li>
+            <li class="card">
+                F#
+            </li>
+            <li class="card">
+                G
+            </li>
+            <li class="card">
+                G#
+            </li>
+            <li class="card">
+                A
+            </li>
+            <li class="card">
+                Bb
+            </li>
+            <li class="card">
+                B
+            </li>
+        </ul> -->
+    </div>
+    <section class="instructions hidden">
+        <p>Instructions:</p>
+        <ul>
+            <li>Select various chords by clicking on them</li>
+            <li>Click the arrows to convert up or down</li>
+            <li>Add the modifiers you want to the last chord selected</li>
+            <li>Click a selected chord to remove it</li>
+        </ul>
+    </section>
+    <script src="js/chordsConverter.js"></script>
+</body>
+</html>

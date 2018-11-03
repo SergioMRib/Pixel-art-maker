@@ -6,3 +6,9 @@ musica_thumbnail.png
 
 ## pdf files ##
 design-mockup-portfolio.pdf
+
+## js files ##
+hello.js
+hello-world-server.js
+*.json
+design/
