@@ -22,6 +22,7 @@ body {
 
 
 .container {
+    width: 100%;
     display: grid;
     gap: 5px;
     grid-template-columns: 1fr 50px 50px;
@@ -116,7 +117,23 @@ body {
     display:none;
 }
 
+@media screen and (min-width: 500px) {
 
+    .selection-of-chords {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .selection-of-chords {
+        padding-left: 20px;
+    }
+}
 
 /*
  * Styles for the deck of cards;

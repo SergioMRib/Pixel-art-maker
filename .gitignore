@@ -12,3 +12,6 @@ hello.js
 hello-world-server.js
 *.json
 design/
+
+## txt files ##
+js/howto.txt
