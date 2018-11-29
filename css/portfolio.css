@@ -11,7 +11,8 @@ html {
 html,
 body {
     width: 100%;
-    margin: 0;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 body {
@@ -22,11 +23,29 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     grid-template-areas:
-    "header . . author"
-    "title title title title"
-    "project1 project1 project2 project2"
-    "icons icons icons icons"
-    "credits credits credits credits";
+    "photo author author author"
+    "showcase showcase showcase showcase"
+    "projects projects projects projects"
+    ". footer footer .";
+}
+
+.header_logo {
+    grid-area: photo;
+}
+
+.header_contents {
+    grid-area: author;
+}
+
+.showcase {
+    grid-area: showcase;
+}
+
+main {
+    grid-area: projects;
+}
+footer {
+    grid-area: footer;
 }
 
 
@@ -35,7 +54,8 @@ h1 {
 }
 
 main,
-footer {
+footer,
+.showcase {
     text-align: center;
 }
 
@@ -46,9 +66,8 @@ The header
 */
 
 .header {
+    grid-column: 1 / -1;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .header_logo {
@@ -59,8 +78,8 @@ The header
 }
 
 .header_contents {
-    width: 80%;
-    padding-right: 10px;
+    width: 100%;
+    padding-right: 5px;
     display: inline-block;
     text-align: right;
 }
@@ -81,6 +100,10 @@ The header
 The main body and featured work
 
 */
+/* main {
+    display: grid;
+
+} */
 
 .background {
     position: relative;
@@ -109,11 +132,16 @@ The main body and featured work
 }
 
 .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     width: 100%;
     text-align: center;
 }
 
 .project {
+    display: grid;            /* new */
+    align-items: center;      /* new */
+    justify-items: center;
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
@@ -138,6 +166,7 @@ The footer
 */
 
 footer {
+    grid-column: 1 / -1;
     width: 90%;
     margin: 0 auto;
     text-align: center;
@@ -172,50 +201,6 @@ p.credits {
 /*
 /
 /
-For screens over 550px - tablets
-/
-/
-*/
-@media screen and (min-width: 550px) {
-    .project-list {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .project {
-        margin: 10px auto;
-    }
-
-    .pam {
-        width: 100%;
-        order: 1;
-    }
-
-    .card, .third {
-        width: 50%;
-        order: 2;
-    }
-
-    footer {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .social {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .icons {
-        width: 30px;
-    }
-}
-
-/*
-/
-/
 For screens over 800px - desktop
 /
 /
@@ -223,16 +208,15 @@ For screens over 800px - desktop
 
 @media screen and (min-width: 800px) {
     body {
-        width: 800px;
         margin: 0 auto;
     }
 
-    .project {
-        width: 30%;
+    .header_logo {
+        padding-left: 0px;
     }
 
     .icons {
-        width: 35px;
+        width: 40px;
     }
 
     .social {
