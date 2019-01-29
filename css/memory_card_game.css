@@ -36,6 +36,7 @@ li {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    text-align: center
 }
 
 /*
@@ -43,22 +44,22 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 95%;
+    text-align: center;
     align-items: center;
-    margin: 0 0 3em;
+    justify-items: center;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height: 50px;
+    width: 100%;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -77,13 +78,13 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 6vw;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 6vw;
 }
 
 /*
@@ -92,7 +93,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 80%;
     margin-bottom: 10px;
 }
 
@@ -119,7 +120,7 @@ h1 {
     text-align: center;
     color: whitesmoke;
     top: 150px;
-    width: 500px;
+    width: 90%;
     height: 300px;
     background-color: #2e3d49;
     border-radius: 10px;
@@ -129,4 +130,55 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+@media screen and (min-width: 400px) {
+    .deck .card{
+        height: 100px
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .deck {
+        width: 500px;
+        height: 500px;
+        background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 3em;
+    }
+
+    .deck .card {
+        height: 100%;
+        width: 100%;
+        background: #2e3d49;
+        font-size: 0;
+        color: #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    }
+
+    .deck .card.open {
+        transform: rotateY(0);
+        background: #02b3e4;
+        cursor: not-allowed;
+    }
+
+    .deck .card.show {
+        font-size: 33px;
+    }
+
+    .deck .card.match {
+        cursor: default;
+        background: #02ccba;
+        font-size: 33px;
+    }
 }
