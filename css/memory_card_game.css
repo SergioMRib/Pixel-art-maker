@@ -92,7 +92,11 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
     width: 80%;
     margin-bottom: 10px;
 }
@@ -105,12 +109,11 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
     cursor: pointer;
 }
 
 .time-score {
-    text-align: center;
+    grid-column: 1 / -1
 }
 
 .winner-alert {
@@ -132,6 +135,48 @@ h1 {
     display: none;
 }
 
+/*
+The footer
+*/
+
+footer {
+    grid-column: 1 / -1;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.credits {
+    color: grey;
+    display: block;
+    font-size: 10px;
+    margin: 0;
+}
+
+p.credits {
+    width: 100%;
+}
+
+.social{
+    margin-bottom: 10px;
+}
+
+.social_link {
+    margin: 10px 20px 5px;
+    color: #02b3e4;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.icons {
+    width: 28px;
+}
+
+/*
+
+Media Queries
+
+*/
 @media screen and (min-width: 400px) {
     .deck .card{
         height: 100px
