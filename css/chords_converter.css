@@ -25,15 +25,15 @@ body {
     width: 100%;
     display: grid;
     gap: 5px;
-    grid-template-columns: 1fr 50px 50px;
-    grid-template-rows: 50px auto auto 50px;
+    grid-template-columns: 5fr 1fr 1.5fr;
+    grid-template-rows: 50px auto auto auto;
    /*  justify-content: center; */
     align-items: center;
     grid-template-areas:
     "header header menu"
     "content chords modifiers"
     "content chords modifiers"
-    ". panel panel"
+    "panel panel panel"
     "footer footer footer";
 }
 
@@ -54,6 +54,16 @@ body {
 .panel {
     grid-area: panel;
     cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+/*
+EDIT THE PANEL AND THE RESTART AND NEW-LINE PARTS
+ALSO CHANGE THE .restart TO SOMETHING MEANINGFULL
+*/
+.restart, .new-line {
+    display: inline;
 }
 
 .footer {
@@ -67,7 +77,7 @@ body {
 */
 
 .list-of-chords, .list-of-modifiers {
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: #2e3d49;
     border-radius: 2px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     justify-content: space-between;
@@ -75,9 +85,12 @@ body {
 }
 
 .chord, .modifier {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    align-items: center;
     text-align: center;
-    background: #2e3d49;
-    font-size: 18px;
+    font-size: 6vw;
     color: #ffffff;
     border-radius: 2px;
     cursor: pointer;
@@ -116,6 +129,15 @@ body {
 .hidden {
     display:none;
 }
+
+/*
+    Styles for the panel
+*/
+
+.restart {
+
+}
+
 
 @media screen and (min-width: 500px) {
 
